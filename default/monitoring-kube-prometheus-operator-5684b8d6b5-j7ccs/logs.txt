@@ -1,0 +1,36 @@
+==== START logs for container kube-prometheus-stack of pod default/monitoring-kube-prometheus-operator-5684b8d6b5-j7ccs ====
+level=info ts=2024-01-17T08:58:25.394590998Z caller=main.go:180 msg="Starting Prometheus Operator" version="(version=0.70.0, branch=refs/tags/v0.70.0, revision=c2c673f7123f3745a2a982b4a2bdc43a11f50fad)"
+level=info ts=2024-01-17T08:58:25.394687608Z caller=main.go:181 build_context="(go=go1.21.4, platform=linux/amd64, user=Action-Run-ID-7048794395, date=20231130-15:41:45, tags=unknown)"
+level=info ts=2024-01-17T08:58:25.394707811Z caller=main.go:192 msg="namespaces filtering configuration " config="{allow_list=\"\",deny_list=\"\",prometheus_allow_list=\"\",alertmanager_allow_list=\"\",alertmanagerconfig_allow_list=\"\",thanosruler_allow_list=\"\"}"
+level=info ts=2024-01-17T08:58:25.515716176Z caller=main.go:221 msg="connection established" cluster-version=v1.28.2
+level=info ts=2024-01-17T08:58:25.630911075Z caller=operator.go:321 component=prometheusoperator msg="Kubernetes API capabilities" endpointslices=true
+level=info ts=2024-01-17T08:58:25.6797916Z caller=operator.go:308 component=prometheusagentoperator msg="Kubernetes API capabilities" endpointslices=true
+level=warn ts=2024-01-17T08:58:25.77470546Z caller=server.go:158 msg="server TLS client verification disabled" err="stat /etc/tls/private/tls-ca.crt: no such file or directory" client_ca_file=/etc/tls/private/tls-ca.crt
+level=info ts=2024-01-17T08:58:25.797813614Z caller=server.go:259 msg="starting secure server" address=[::]:10250 http2=false
+level=info ts=2024-01-17T08:58:26.251263851Z caller=operator.go:309 component=alertmanageroperator msg="successfully synced all caches"
+level=info ts=2024-01-17T08:58:26.252845391Z caller=operator.go:641 component=alertmanageroperator key=default/monitoring-kube-prometheus-alertmanager msg="sync alertmanager"
+level=info ts=2024-01-17T08:58:26.423897712Z caller=operator.go:417 component=prometheusagentoperator msg="successfully synced all caches"
+level=info ts=2024-01-17T08:58:26.517657243Z caller=operator.go:270 component=thanosoperator msg="successfully synced all caches"
+level=info ts=2024-01-17T08:58:26.616907801Z caller=operator.go:378 component=prometheusoperator msg="successfully synced all caches"
+level=info ts=2024-01-17T08:58:26.617986902Z caller=operator.go:975 component=prometheusoperator key=default/monitoring-kube-prometheus-prometheus msg="sync prometheus"
+level=info ts=2024-01-17T08:58:26.673203083Z caller=operator.go:641 component=alertmanageroperator key=default/monitoring-kube-prometheus-alertmanager msg="sync alertmanager"
+level=info ts=2024-01-17T08:58:27.463013547Z caller=operator.go:975 component=prometheusoperator key=default/monitoring-kube-prometheus-prometheus msg="sync prometheus"
+level=info ts=2024-01-17T09:53:55.545058489Z caller=operator.go:975 component=prometheusoperator key=default/monitoring-kube-prometheus-prometheus msg="sync prometheus"
+level=info ts=2024-01-17T09:53:55.545127866Z caller=operator.go:641 component=alertmanageroperator key=default/monitoring-kube-prometheus-alertmanager msg="sync alertmanager"
+level=info ts=2024-01-17T09:55:21.643508843Z caller=operator.go:975 component=prometheusoperator key=default/monitoring-kube-prometheus-prometheus msg="sync prometheus"
+level=info ts=2024-01-17T09:55:21.643494105Z caller=operator.go:641 component=alertmanageroperator key=default/monitoring-kube-prometheus-alertmanager msg="sync alertmanager"
+level=info ts=2024-01-17T09:55:21.714290149Z caller=operator.go:641 component=alertmanageroperator key=default/monitoring-kube-prometheus-alertmanager msg="sync alertmanager"
+level=info ts=2024-01-17T09:55:21.849299974Z caller=operator.go:975 component=prometheusoperator key=default/monitoring-kube-prometheus-prometheus msg="sync prometheus"
+level=info ts=2024-01-17T10:02:21.542492159Z caller=operator.go:975 component=prometheusoperator key=default/monitoring-kube-prometheus-prometheus msg="sync prometheus"
+level=info ts=2024-01-17T10:02:21.54366247Z caller=operator.go:641 component=alertmanageroperator key=default/monitoring-kube-prometheus-alertmanager msg="sync alertmanager"
+level=info ts=2024-01-17T10:05:02.024873724Z caller=operator.go:975 component=prometheusoperator key=default/monitoring-kube-prometheus-prometheus msg="sync prometheus"
+level=info ts=2024-01-17T10:05:02.026030427Z caller=operator.go:641 component=alertmanageroperator key=default/monitoring-kube-prometheus-alertmanager msg="sync alertmanager"
+level=info ts=2024-01-17T10:06:59.1487456Z caller=operator.go:975 component=prometheusoperator key=default/monitoring-kube-prometheus-prometheus msg="sync prometheus"
+level=info ts=2024-01-17T10:06:59.151725226Z caller=operator.go:641 component=alertmanageroperator key=default/monitoring-kube-prometheus-alertmanager msg="sync alertmanager"
+level=info ts=2024-01-17T10:07:16.86633087Z caller=operator.go:641 component=alertmanageroperator key=default/monitoring-kube-prometheus-alertmanager msg="sync alertmanager"
+level=info ts=2024-01-17T10:07:16.866417097Z caller=operator.go:975 component=prometheusoperator key=default/monitoring-kube-prometheus-prometheus msg="sync prometheus"
+level=info ts=2024-01-17T10:08:17.964590316Z caller=operator.go:975 component=prometheusoperator key=default/monitoring-kube-prometheus-prometheus msg="sync prometheus"
+level=info ts=2024-01-17T10:08:17.96510064Z caller=operator.go:641 component=alertmanageroperator key=default/monitoring-kube-prometheus-alertmanager msg="sync alertmanager"
+level=info ts=2024-01-17T10:59:19.830193321Z caller=operator.go:975 component=prometheusoperator key=default/monitoring-kube-prometheus-prometheus msg="sync prometheus"
+level=info ts=2024-01-17T10:59:19.830182963Z caller=operator.go:641 component=alertmanageroperator key=default/monitoring-kube-prometheus-alertmanager msg="sync alertmanager"
+==== END logs for container kube-prometheus-stack of pod default/monitoring-kube-prometheus-operator-5684b8d6b5-j7ccs ====

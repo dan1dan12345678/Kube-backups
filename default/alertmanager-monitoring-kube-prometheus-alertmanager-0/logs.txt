@@ -1,0 +1,25 @@
+==== START logs for container init-config-reloader of pod default/alertmanager-monitoring-kube-prometheus-alertmanager-0 ====
+level=info ts=2024-01-17T08:58:24.790503187Z caller=main.go:137 msg="Starting prometheus-config-reloader" version="(version=0.70.0, branch=refs/tags/v0.70.0, revision=c2c673f7123f3745a2a982b4a2bdc43a11f50fad)"
+level=info ts=2024-01-17T08:58:24.790632133Z caller=main.go:138 build_context="(go=go1.21.4, platform=linux/amd64, user=Action-Run-ID-7048794395, date=20231130-15:42:49, tags=unknown)"
+level=info ts=2024-01-17T08:58:24.791744557Z caller=reloader.go:246 msg="reloading via HTTP"
+==== END logs for container init-config-reloader of pod default/alertmanager-monitoring-kube-prometheus-alertmanager-0 ====
+==== START logs for container alertmanager of pod default/alertmanager-monitoring-kube-prometheus-alertmanager-0 ====
+ts=2024-01-17T08:58:26.630Z caller=main.go:245 level=info msg="Starting Alertmanager" version="(version=0.26.0, branch=HEAD, revision=d7b4f0c7322e7151d6e3b1e31cbc15361e295d8d)"
+ts=2024-01-17T08:58:26.639Z caller=main.go:246 level=info build_context="(go=go1.20.7, platform=linux/amd64, user=root@df8d7debeef4, date=20230824-11:11:58, tags=netgo)"
+ts=2024-01-17T08:58:26.815Z caller=coordinator.go:113 level=info component=configuration msg="Loading configuration file" file=/etc/alertmanager/config_out/alertmanager.env.yaml
+ts=2024-01-17T08:58:26.835Z caller=coordinator.go:126 level=info component=configuration msg="Completed loading of configuration file" file=/etc/alertmanager/config_out/alertmanager.env.yaml
+ts=2024-01-17T08:58:26.849Z caller=tls_config.go:274 level=info msg="Listening on" address=[::]:9093
+ts=2024-01-17T08:58:26.850Z caller=tls_config.go:313 level=info msg="TLS is disabled." http2=false address=[::]:9093
+ts=2024-01-17T08:58:27.084Z caller=coordinator.go:113 level=info component=configuration msg="Loading configuration file" file=/etc/alertmanager/config_out/alertmanager.env.yaml
+ts=2024-01-17T08:58:27.085Z caller=coordinator.go:126 level=info component=configuration msg="Completed loading of configuration file" file=/etc/alertmanager/config_out/alertmanager.env.yaml
+==== END logs for container alertmanager of pod default/alertmanager-monitoring-kube-prometheus-alertmanager-0 ====
+==== START logs for container config-reloader of pod default/alertmanager-monitoring-kube-prometheus-alertmanager-0 ====
+level=info ts=2024-01-17T08:58:27.06058659Z caller=main.go:137 msg="Starting prometheus-config-reloader" version="(version=0.70.0, branch=refs/tags/v0.70.0, revision=c2c673f7123f3745a2a982b4a2bdc43a11f50fad)"
+level=info ts=2024-01-17T08:58:27.060974594Z caller=main.go:138 build_context="(go=go1.21.4, platform=linux/amd64, user=Action-Run-ID-7048794395, date=20231130-15:42:49, tags=unknown)"
+level=info ts=2024-01-17T08:58:27.062019486Z caller=reloader.go:246 msg="reloading via HTTP"
+level=info ts=2024-01-17T08:58:27.063036547Z caller=main.go:193 msg="Starting web server for metrics" listen=:8080
+level=info ts=2024-01-17T08:58:27.080048158Z caller=tls_config.go:274 msg="Listening on" address=[::]:8080
+level=info ts=2024-01-17T08:58:27.083521246Z caller=tls_config.go:277 msg="TLS is disabled." http2=false address=[::]:8080
+level=info ts=2024-01-17T08:58:27.089984859Z caller=reloader.go:424 msg="Reload triggered" cfg_in=/etc/alertmanager/config/alertmanager.yaml.gz cfg_out=/etc/alertmanager/config_out/alertmanager.env.yaml watched_dirs=/etc/alertmanager/config
+level=info ts=2024-01-17T08:58:27.090150917Z caller=reloader.go:282 msg="started watching config file and directories for changes" cfg=/etc/alertmanager/config/alertmanager.yaml.gz out=/etc/alertmanager/config_out/alertmanager.env.yaml dirs=/etc/alertmanager/config
+==== END logs for container config-reloader of pod default/alertmanager-monitoring-kube-prometheus-alertmanager-0 ====

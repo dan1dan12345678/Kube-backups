@@ -1,0 +1,2 @@
+kubectl cluster-info dump --all-namespaces --output-directory=${HOME}/clusterstate/ -o yaml
+

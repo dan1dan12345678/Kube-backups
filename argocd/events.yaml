@@ -1,0 +1,414 @@
+---
+apiVersion: v1
+items:
+- count: 1
+  eventTime: null
+  firstTimestamp: "2024-01-17T10:53:32Z"
+  involvedObject:
+    apiVersion: argoproj.io/v1alpha1
+    kind: Application
+    name: w
+    namespace: argocd
+    resourceVersion: "688337"
+    uid: 9796ac0c-2531-4211-bbbf-02b6c8384d1a
+  lastTimestamp: "2024-01-17T10:53:32Z"
+  message: 'Updated sync status: OutOfSync -> Unknown'
+  metadata:
+    annotations:
+      dest-namespace: ""
+      dest-server: https://kubernetes.default.svc
+    creationTimestamp: "2024-01-17T10:53:32Z"
+    name: w.17ab1d09ebb49966
+    namespace: argocd
+    resourceVersion: "688592"
+    uid: f7a1893b-39bc-4c20-bf1b-db8bd83f6d87
+  reason: ResourceUpdated
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: argocd-application-controller
+  type: Normal
+- count: 1
+  eventTime: null
+  firstTimestamp: "2024-01-17T10:59:19Z"
+  involvedObject:
+    apiVersion: argoproj.io/v1alpha1
+    kind: Application
+    name: w
+    namespace: argocd
+    resourceVersion: "689058"
+    uid: 9796ac0c-2531-4211-bbbf-02b6c8384d1a
+  lastTimestamp: "2024-01-17T10:59:19Z"
+  message: admin initiated sync to HEAD (875dffc8948af9dca9bba5f599b8e609e3f14bd8)
+  metadata:
+    annotations:
+      dest-namespace: ""
+      dest-server: https://kubernetes.default.svc
+      user: admin
+    creationTimestamp: "2024-01-17T10:59:19Z"
+    name: w.17ab1d5ac8887353
+    namespace: argocd
+    resourceVersion: "689059"
+    uid: 7e1fd2fc-ccaa-49e9-b819-921aa2df081e
+  reason: OperationStarted
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: argocd-server
+  type: Normal
+- count: 1
+  eventTime: null
+  firstTimestamp: "2024-01-17T10:59:19Z"
+  involvedObject:
+    apiVersion: argoproj.io/v1alpha1
+    kind: Application
+    name: w
+    namespace: argocd
+    resourceVersion: "689058"
+    uid: 9796ac0c-2531-4211-bbbf-02b6c8384d1a
+  lastTimestamp: "2024-01-17T10:59:19Z"
+  message: Sync operation to 875dffc8948af9dca9bba5f599b8e609e3f14bd8 succeeded
+  metadata:
+    annotations:
+      dest-namespace: ""
+      dest-server: https://kubernetes.default.svc
+    creationTimestamp: "2024-01-17T10:59:19Z"
+    name: w.17ab1d5ad6b65c3c
+    namespace: argocd
+    resourceVersion: "689064"
+    uid: 184588da-2089-4cf3-af20-23d49c1d77e4
+  reason: OperationCompleted
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: argocd-application-controller
+  type: Normal
+- count: 1
+  eventTime: null
+  firstTimestamp: "2024-01-17T10:59:19Z"
+  involvedObject:
+    apiVersion: argoproj.io/v1alpha1
+    kind: Application
+    name: w
+    namespace: argocd
+    resourceVersion: "689058"
+    uid: 9796ac0c-2531-4211-bbbf-02b6c8384d1a
+  lastTimestamp: "2024-01-17T10:59:19Z"
+  message: 'Updated sync status: Unknown -> Synced'
+  metadata:
+    annotations:
+      dest-namespace: ""
+      dest-server: https://kubernetes.default.svc
+    creationTimestamp: "2024-01-17T10:59:19Z"
+    name: w.17ab1d5ad94e08bb
+    namespace: argocd
+    resourceVersion: "689065"
+    uid: edf0bc08-57d4-4922-9f83-3cc20c9cf2e3
+  reason: ResourceUpdated
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: argocd-application-controller
+  type: Normal
+- count: 1
+  eventTime: null
+  firstTimestamp: "2024-01-17T10:59:19Z"
+  involvedObject:
+    apiVersion: argoproj.io/v1alpha1
+    kind: Application
+    name: w
+    namespace: argocd
+    resourceVersion: "689063"
+    uid: 9796ac0c-2531-4211-bbbf-02b6c8384d1a
+  lastTimestamp: "2024-01-17T10:59:19Z"
+  message: 'Updated sync status: Unknown -> Synced'
+  metadata:
+    annotations:
+      dest-namespace: ""
+      dest-server: https://kubernetes.default.svc
+    creationTimestamp: "2024-01-17T10:59:19Z"
+    name: w.17ab1d5adc4a4480
+    namespace: argocd
+    resourceVersion: "689067"
+    uid: 6166d302-347c-4b0a-af6a-cfb74d4d0b22
+  reason: ResourceUpdated
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: argocd-application-controller
+  type: Normal
+- count: 1
+  eventTime: null
+  firstTimestamp: "2024-01-17T10:59:49Z"
+  involvedObject:
+    apiVersion: argoproj.io/v1alpha1
+    kind: Application
+    name: webapp-argo
+    namespace: argocd
+    resourceVersion: "689110"
+    uid: d39004e1-5bd0-4f8f-90f4-6a3433d6c259
+  lastTimestamp: "2024-01-17T10:59:49Z"
+  message: admin created application
+  metadata:
+    annotations:
+      dest-namespace: webapp-argo
+      dest-server: https://kubernetes.default.svc
+      user: admin
+    creationTimestamp: "2024-01-17T10:59:49Z"
+    name: webapp-argo.17ab1d61d8bed31d
+    namespace: argocd
+    resourceVersion: "689111"
+    uid: e5faeba3-7f06-46aa-84d1-040d9f766a98
+  reason: ResourceCreated
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: argocd-server
+  type: Normal
+- count: 1
+  eventTime: null
+  firstTimestamp: "2024-01-17T10:59:50Z"
+  involvedObject:
+    apiVersion: argoproj.io/v1alpha1
+    kind: Application
+    name: webapp-argo
+    namespace: argocd
+    resourceVersion: "689110"
+    uid: d39004e1-5bd0-4f8f-90f4-6a3433d6c259
+  lastTimestamp: "2024-01-17T10:59:50Z"
+  message: 'Updated sync status:  -> OutOfSync'
+  metadata:
+    annotations:
+      dest-namespace: webapp-argo
+      dest-server: https://kubernetes.default.svc
+    creationTimestamp: "2024-01-17T10:59:50Z"
+    name: webapp-argo.17ab1d6205561e2e
+    namespace: argocd
+    resourceVersion: "689114"
+    uid: 99598200-2c19-46d4-beb4-9fbe9dde0352
+  reason: ResourceUpdated
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: argocd-application-controller
+  type: Normal
+- count: 1
+  eventTime: null
+  firstTimestamp: "2024-01-17T10:59:50Z"
+  involvedObject:
+    apiVersion: argoproj.io/v1alpha1
+    kind: Application
+    name: webapp-argo
+    namespace: argocd
+    resourceVersion: "689110"
+    uid: d39004e1-5bd0-4f8f-90f4-6a3433d6c259
+  lastTimestamp: "2024-01-17T10:59:50Z"
+  message: 'Updated health status:  -> Missing'
+  metadata:
+    annotations:
+      dest-namespace: webapp-argo
+      dest-server: https://kubernetes.default.svc
+    creationTimestamp: "2024-01-17T10:59:50Z"
+    name: webapp-argo.17ab1d6205880063
+    namespace: argocd
+    resourceVersion: "689115"
+    uid: 7590cd10-2ee7-4ce5-be71-87be5551968f
+  reason: ResourceUpdated
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: argocd-application-controller
+  type: Normal
+- count: 1
+  eventTime: null
+  firstTimestamp: "2024-01-17T10:59:58Z"
+  involvedObject:
+    apiVersion: argoproj.io/v1alpha1
+    kind: Application
+    name: webapp-argo
+    namespace: argocd
+    resourceVersion: "689126"
+    uid: d39004e1-5bd0-4f8f-90f4-6a3433d6c259
+  lastTimestamp: "2024-01-17T10:59:58Z"
+  message: admin initiated sync to HEAD (875dffc8948af9dca9bba5f599b8e609e3f14bd8)
+  metadata:
+    annotations:
+      dest-namespace: webapp-argo
+      dest-server: https://kubernetes.default.svc
+      user: admin
+    creationTimestamp: "2024-01-17T10:59:58Z"
+    name: webapp-argo.17ab1d63cb63c71e
+    namespace: argocd
+    resourceVersion: "689127"
+    uid: 8813fce0-cf12-44c0-ba60-e650d3fe87be
+  reason: OperationStarted
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: argocd-server
+  type: Normal
+- count: 1
+  eventTime: null
+  firstTimestamp: "2024-01-17T10:59:58Z"
+  involvedObject:
+    apiVersion: argoproj.io/v1alpha1
+    kind: Application
+    name: webapp-argo
+    namespace: argocd
+    resourceVersion: "689139"
+    uid: d39004e1-5bd0-4f8f-90f4-6a3433d6c259
+  lastTimestamp: "2024-01-17T10:59:58Z"
+  message: 'Updated sync status: OutOfSync -> Synced'
+  metadata:
+    annotations:
+      dest-namespace: webapp-argo
+      dest-server: https://kubernetes.default.svc
+    creationTimestamp: "2024-01-17T10:59:58Z"
+    name: webapp-argo.17ab1d63d6e2e4de
+    namespace: argocd
+    resourceVersion: "689151"
+    uid: 4486173d-2ee6-4653-90a4-7d83a22c898b
+  reason: ResourceUpdated
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: argocd-application-controller
+  type: Normal
+- count: 1
+  eventTime: null
+  firstTimestamp: "2024-01-17T10:59:58Z"
+  involvedObject:
+    apiVersion: argoproj.io/v1alpha1
+    kind: Application
+    name: webapp-argo
+    namespace: argocd
+    resourceVersion: "689126"
+    uid: d39004e1-5bd0-4f8f-90f4-6a3433d6c259
+  lastTimestamp: "2024-01-17T10:59:58Z"
+  message: Sync operation to 875dffc8948af9dca9bba5f599b8e609e3f14bd8 succeeded
+  metadata:
+    annotations:
+      dest-namespace: webapp-argo
+      dest-server: https://kubernetes.default.svc
+    creationTimestamp: "2024-01-17T10:59:58Z"
+    name: webapp-argo.17ab1d63d71a9775
+    namespace: argocd
+    resourceVersion: "689153"
+    uid: 8cd86bd5-8e49-40df-9731-0f3e79f91df8
+  reason: OperationCompleted
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: argocd-application-controller
+  type: Normal
+- count: 1
+  eventTime: null
+  firstTimestamp: "2024-01-17T10:59:58Z"
+  involvedObject:
+    apiVersion: argoproj.io/v1alpha1
+    kind: Application
+    name: webapp-argo
+    namespace: argocd
+    resourceVersion: "689139"
+    uid: d39004e1-5bd0-4f8f-90f4-6a3433d6c259
+  lastTimestamp: "2024-01-17T10:59:58Z"
+  message: 'Updated health status: Missing -> Progressing'
+  metadata:
+    annotations:
+      dest-namespace: webapp-argo
+      dest-server: https://kubernetes.default.svc
+    creationTimestamp: "2024-01-17T10:59:58Z"
+    name: webapp-argo.17ab1d63d73308bd
+    namespace: argocd
+    resourceVersion: "689154"
+    uid: 9f2de2ac-ecf0-4b19-92e3-ab3e162a0eee
+  reason: ResourceUpdated
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: argocd-application-controller
+  type: Normal
+- count: 1
+  eventTime: null
+  firstTimestamp: "2024-01-17T11:00:00Z"
+  involvedObject:
+    apiVersion: argoproj.io/v1alpha1
+    kind: Application
+    name: webapp-argo
+    namespace: argocd
+    resourceVersion: "689157"
+    uid: d39004e1-5bd0-4f8f-90f4-6a3433d6c259
+  lastTimestamp: "2024-01-17T11:00:00Z"
+  message: 'Updated health status: Progressing -> Healthy'
+  metadata:
+    annotations:
+      dest-namespace: webapp-argo
+      dest-server: https://kubernetes.default.svc
+    creationTimestamp: "2024-01-17T11:00:00Z"
+    name: webapp-argo.17ab1d643f85cecb
+    namespace: argocd
+    resourceVersion: "689167"
+    uid: 10b47c57-be36-4045-b255-457ddf47e479
+  reason: ResourceUpdated
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: argocd-application-controller
+  type: Normal
+- count: 1
+  eventTime: null
+  firstTimestamp: "2024-01-17T10:53:32Z"
+  involvedObject:
+    apiVersion: argoproj.io/v1alpha1
+    kind: Application
+    name: webapp1
+    namespace: argocd
+    resourceVersion: "688336"
+    uid: e0418a40-097f-42a7-a90b-46d014ffd674
+  lastTimestamp: "2024-01-17T10:53:32Z"
+  message: 'Updated sync status: Synced -> Unknown'
+  metadata:
+    annotations:
+      dest-namespace: ""
+      dest-server: https://kubernetes.default.svc
+    creationTimestamp: "2024-01-17T10:53:32Z"
+    name: webapp1.17ab1d09eaef9e12
+    namespace: argocd
+    resourceVersion: "688591"
+    uid: cca4f519-2109-4e70-8b31-78940d3e94e1
+  reason: ResourceUpdated
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: argocd-application-controller
+  type: Normal
+- count: 1
+  eventTime: null
+  firstTimestamp: "2024-01-17T10:56:22Z"
+  involvedObject:
+    apiVersion: argoproj.io/v1alpha1
+    kind: Application
+    name: webapp1
+    namespace: argocd
+    resourceVersion: "688593"
+    uid: e0418a40-097f-42a7-a90b-46d014ffd674
+  lastTimestamp: "2024-01-17T10:56:22Z"
+  message: 'Updated sync status: Unknown -> Synced'
+  metadata:
+    annotations:
+      dest-namespace: ""
+      dest-server: https://kubernetes.default.svc
+    creationTimestamp: "2024-01-17T10:56:22Z"
+    name: webapp1.17ab1d319e2628a3
+    namespace: argocd
+    resourceVersion: "688824"
+    uid: 43dc48e6-004f-4767-905e-4aa60aed0fed
+  reason: ResourceUpdated
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: argocd-application-controller
+  type: Normal
+kind: EventList
+metadata:
+  resourceVersion: "693283"

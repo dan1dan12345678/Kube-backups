@@ -1,0 +1,73 @@
+---
+apiVersion: apps/v1
+items:
+- metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "1"
+      deployment.kubernetes.io/max-replicas: "2"
+      deployment.kubernetes.io/revision: "1"
+    creationTimestamp: "2024-01-11T11:48:38Z"
+    generation: 1
+    labels:
+      app: portainer-agent
+      pod-template-hash: 548d57f7b5
+    name: portainer-agent-548d57f7b5
+    namespace: portainer
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: portainer-agent
+      uid: 068e8472-5e8a-4076-b302-37a0454200f1
+    resourceVersion: "678674"
+    uid: bbb516e8-59ee-40a5-8fc1-0fc6ed4b9404
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app: portainer-agent
+        pod-template-hash: 548d57f7b5
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: portainer-agent
+          pod-template-hash: 548d57f7b5
+      spec:
+        containers:
+        - env:
+          - name: LOG_LEVEL
+            value: DEBUG
+          - name: AGENT_CLUSTER_ADDR
+            value: portainer-agent-headless
+          - name: KUBERNETES_POD_IP
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: status.podIP
+          image: portainer/agent:2.19.4
+          imagePullPolicy: Always
+          name: portainer-agent
+          ports:
+          - containerPort: 9001
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: portainer-sa-clusteradmin
+        serviceAccountName: portainer-sa-clusteradmin
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 1
+    fullyLabeledReplicas: 1
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+kind: ReplicaSetList
+metadata:
+  resourceVersion: "693285"

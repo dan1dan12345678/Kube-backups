@@ -1,0 +1,16 @@
+==== START logs for container kube-scheduler of pod kube-system/kube-scheduler-docker-desktop ====
+I0117 08:58:17.640732       1 serving.go:348] Generated self-signed cert in-memory
+W0117 08:58:20.134989       1 requestheader_controller.go:193] Unable to get configmap/extension-apiserver-authentication in kube-system.  Usually fixed by 'kubectl create rolebinding -n kube-system ROLEBINDING_NAME --role=extension-apiserver-authentication-reader --serviceaccount=YOUR_NS:YOUR_SA'
+W0117 08:58:20.135034       1 authentication.go:368] Error looking up in-cluster authentication configuration: configmaps "extension-apiserver-authentication" is forbidden: User "system:kube-scheduler" cannot get resource "configmaps" in API group "" in the namespace "kube-system"
+W0117 08:58:20.135052       1 authentication.go:369] Continuing without authentication configuration. This may treat all requests as anonymous.
+W0117 08:58:20.135069       1 authentication.go:370] To require authentication configuration lookup to succeed, set --authentication-tolerate-lookup-failure=false
+I0117 08:58:20.180006       1 server.go:154] "Starting Kubernetes Scheduler" version="v1.28.2"
+I0117 08:58:20.180051       1 server.go:156] "Golang settings" GOGC="" GOMAXPROCS="" GOTRACEBACK=""
+I0117 08:58:20.186373       1 configmap_cafile_content.go:202] "Starting controller" name="client-ca::kube-system::extension-apiserver-authentication::client-ca-file"
+I0117 08:58:20.186781       1 shared_informer.go:311] Waiting for caches to sync for client-ca::kube-system::extension-apiserver-authentication::client-ca-file
+I0117 08:58:20.188405       1 secure_serving.go:210] Serving securely on 127.0.0.1:10259
+I0117 08:58:20.188616       1 tlsconfig.go:240] "Starting DynamicServingCertificateController"
+I0117 08:58:20.287554       1 shared_informer.go:318] Caches are synced for client-ca::kube-system::extension-apiserver-authentication::client-ca-file
+I0117 08:58:20.289332       1 leaderelection.go:250] attempting to acquire leader lease kube-system/kube-scheduler...
+I0117 08:58:38.344934       1 leaderelection.go:260] successfully acquired lease kube-system/kube-scheduler
+==== END logs for container kube-scheduler of pod kube-system/kube-scheduler-docker-desktop ====

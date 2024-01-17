@@ -1,0 +1,156 @@
+---
+apiVersion: v1
+items:
+- action: Binding
+  eventTime: "2024-01-17T10:59:58.524813Z"
+  firstTimestamp: null
+  involvedObject:
+    apiVersion: v1
+    kind: Pod
+    name: webapp-5d988d777f-qcmts
+    namespace: webapp-argo
+    resourceVersion: "689142"
+    uid: 4412f074-8ea6-46be-bb9f-a473a8ff4e9c
+  lastTimestamp: null
+  message: Successfully assigned webapp-argo/webapp-5d988d777f-qcmts to docker-desktop
+  metadata:
+    creationTimestamp: "2024-01-17T10:59:58Z"
+    name: webapp-5d988d777f-qcmts.17ab1d63d656913a
+    namespace: webapp-argo
+    resourceVersion: "689148"
+    uid: 4b92b559-0d3e-43b8-b500-f08540d5e441
+  reason: Scheduled
+  reportingComponent: default-scheduler
+  reportingInstance: default-scheduler-docker-desktop
+  source: {}
+  type: Normal
+- count: 1
+  eventTime: null
+  firstTimestamp: "2024-01-17T10:59:59Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{webapp}
+    kind: Pod
+    name: webapp-5d988d777f-qcmts
+    namespace: webapp-argo
+    resourceVersion: "689145"
+    uid: 4412f074-8ea6-46be-bb9f-a473a8ff4e9c
+  lastTimestamp: "2024-01-17T10:59:59Z"
+  message: Container image "richardchesterwood/k8s-fleetman-helm-demo:v1.0.0" already
+    present on machine
+  metadata:
+    creationTimestamp: "2024-01-17T10:59:59Z"
+    name: webapp-5d988d777f-qcmts.17ab1d63fba77b03
+    namespace: webapp-argo
+    resourceVersion: "689158"
+    uid: cdee1b9f-4c12-4bb4-8e33-86a7d0121150
+  reason: Pulled
+  reportingComponent: kubelet
+  reportingInstance: docker-desktop
+  source:
+    component: kubelet
+    host: docker-desktop
+  type: Normal
+- count: 1
+  eventTime: null
+  firstTimestamp: "2024-01-17T10:59:59Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{webapp}
+    kind: Pod
+    name: webapp-5d988d777f-qcmts
+    namespace: webapp-argo
+    resourceVersion: "689145"
+    uid: 4412f074-8ea6-46be-bb9f-a473a8ff4e9c
+  lastTimestamp: "2024-01-17T10:59:59Z"
+  message: Created container webapp
+  metadata:
+    creationTimestamp: "2024-01-17T10:59:59Z"
+    name: webapp-5d988d777f-qcmts.17ab1d63fcd85eb5
+    namespace: webapp-argo
+    resourceVersion: "689159"
+    uid: 1487840d-fafa-4405-a69d-6e4d944d7bf9
+  reason: Created
+  reportingComponent: kubelet
+  reportingInstance: docker-desktop
+  source:
+    component: kubelet
+    host: docker-desktop
+  type: Normal
+- count: 1
+  eventTime: null
+  firstTimestamp: "2024-01-17T10:59:59Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{webapp}
+    kind: Pod
+    name: webapp-5d988d777f-qcmts
+    namespace: webapp-argo
+    resourceVersion: "689145"
+    uid: 4412f074-8ea6-46be-bb9f-a473a8ff4e9c
+  lastTimestamp: "2024-01-17T10:59:59Z"
+  message: Started container webapp
+  metadata:
+    creationTimestamp: "2024-01-17T10:59:59Z"
+    name: webapp-5d988d777f-qcmts.17ab1d6400d7ddae
+    namespace: webapp-argo
+    resourceVersion: "689160"
+    uid: 280dad8c-65aa-472f-95e1-50e8da566e7d
+  reason: Started
+  reportingComponent: kubelet
+  reportingInstance: docker-desktop
+  source:
+    component: kubelet
+    host: docker-desktop
+  type: Normal
+- count: 1
+  eventTime: null
+  firstTimestamp: "2024-01-17T10:59:58Z"
+  involvedObject:
+    apiVersion: apps/v1
+    kind: ReplicaSet
+    name: webapp-5d988d777f
+    namespace: webapp-argo
+    resourceVersion: "689138"
+    uid: 51dabb3f-8524-4bf8-a69d-35a947e2ba42
+  lastTimestamp: "2024-01-17T10:59:58Z"
+  message: 'Created pod: webapp-5d988d777f-qcmts'
+  metadata:
+    creationTimestamp: "2024-01-17T10:59:58Z"
+    name: webapp-5d988d777f.17ab1d63d5d8c9a5
+    namespace: webapp-argo
+    resourceVersion: "689143"
+    uid: b135ba85-9e6f-40b3-ba2d-bb29ebaf348b
+  reason: SuccessfulCreate
+  reportingComponent: replicaset-controller
+  reportingInstance: ""
+  source:
+    component: replicaset-controller
+  type: Normal
+- count: 1
+  eventTime: null
+  firstTimestamp: "2024-01-17T10:59:58Z"
+  involvedObject:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: webapp
+    namespace: webapp-argo
+    resourceVersion: "689136"
+    uid: 42e05580-5584-4a1f-bc91-d8a00715d604
+  lastTimestamp: "2024-01-17T10:59:58Z"
+  message: Scaled up replica set webapp-5d988d777f to 1
+  metadata:
+    creationTimestamp: "2024-01-17T10:59:58Z"
+    name: webapp.17ab1d63d5590113
+    namespace: webapp-argo
+    resourceVersion: "689140"
+    uid: dfa3b262-2938-4601-8eec-e7b3c6b518b3
+  reason: ScalingReplicaSet
+  reportingComponent: deployment-controller
+  reportingInstance: ""
+  source:
+    component: deployment-controller
+  type: Normal
+kind: EventList
+metadata:
+  resourceVersion: "693285"

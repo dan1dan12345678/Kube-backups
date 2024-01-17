@@ -1,0 +1,130 @@
+==== START logs for container grafana-sc-dashboard of pod default/monitoring-grafana-85c785d9f9-fhthl ====
+{"time": "2024-01-17T08:58:32.950169+00:00", "taskName": null, "msg": "Starting collector", "level": "INFO"}
+{"time": "2024-01-17T08:58:32.950646+00:00", "taskName": null, "msg": "No folder annotation was provided, defaulting to k8s-sidecar-target-directory", "level": "WARNING"}
+{"time": "2024-01-17T08:58:32.951056+00:00", "taskName": null, "msg": "Loading incluster config ...", "level": "INFO"}
+{"time": "2024-01-17T08:58:32.952648+00:00", "taskName": null, "msg": "Config for cluster api at 'https://10.96.0.1:443' loaded...", "level": "INFO"}
+{"time": "2024-01-17T08:58:32.952983+00:00", "taskName": null, "msg": "Unique filenames will not be enforced.", "level": "INFO"}
+{"time": "2024-01-17T08:58:32.953224+00:00", "taskName": null, "msg": "5xx response content will not be enabled.", "level": "INFO"}
+==== END logs for container grafana-sc-dashboard of pod default/monitoring-grafana-85c785d9f9-fhthl ====
+==== START logs for container grafana-sc-datasources of pod default/monitoring-grafana-85c785d9f9-fhthl ====
+{"time": "2024-01-17T08:58:32.969397+00:00", "taskName": null, "msg": "Starting collector", "level": "INFO"}
+{"time": "2024-01-17T08:58:32.969731+00:00", "taskName": null, "msg": "No folder annotation was provided, defaulting to k8s-sidecar-target-directory", "level": "WARNING"}
+{"time": "2024-01-17T08:58:32.970082+00:00", "taskName": null, "msg": "Loading incluster config ...", "level": "INFO"}
+{"time": "2024-01-17T08:58:32.971122+00:00", "taskName": null, "msg": "Config for cluster api at 'https://10.96.0.1:443' loaded...", "level": "INFO"}
+{"time": "2024-01-17T08:58:32.971344+00:00", "taskName": null, "msg": "Unique filenames will not be enforced.", "level": "INFO"}
+{"time": "2024-01-17T08:58:32.971587+00:00", "taskName": null, "msg": "5xx response content will not be enabled.", "level": "INFO"}
+==== END logs for container grafana-sc-datasources of pod default/monitoring-grafana-85c785d9f9-fhthl ====
+==== START logs for container grafana of pod default/monitoring-grafana-85c785d9f9-fhthl ====
+logger=settings t=2024-01-17T08:58:28.162672701Z level=info msg="Starting Grafana" version=10.2.3 commit=1e84fede543acc892d2a2515187e545eb047f237 branch=HEAD compiled=2023-12-18T15:46:07Z
+logger=settings t=2024-01-17T08:58:28.163656588Z level=info msg="Config loaded from" file=/usr/share/grafana/conf/defaults.ini
+logger=settings t=2024-01-17T08:58:28.163682209Z level=info msg="Config loaded from" file=/etc/grafana/grafana.ini
+logger=settings t=2024-01-17T08:58:28.163688893Z level=info msg="Config overridden from command line" arg="default.paths.data=/var/lib/grafana/"
+logger=settings t=2024-01-17T08:58:28.163693807Z level=info msg="Config overridden from command line" arg="default.paths.logs=/var/log/grafana"
+logger=settings t=2024-01-17T08:58:28.163698085Z level=info msg="Config overridden from command line" arg="default.paths.plugins=/var/lib/grafana/plugins"
+logger=settings t=2024-01-17T08:58:28.163702241Z level=info msg="Config overridden from command line" arg="default.paths.provisioning=/etc/grafana/provisioning"
+logger=settings t=2024-01-17T08:58:28.163706529Z level=info msg="Config overridden from command line" arg="default.log.mode=console"
+logger=settings t=2024-01-17T08:58:28.163711652Z level=info msg="Config overridden from Environment variable" var="GF_PATHS_DATA=/var/lib/grafana/"
+logger=settings t=2024-01-17T08:58:28.16371639Z level=info msg="Config overridden from Environment variable" var="GF_PATHS_LOGS=/var/log/grafana"
+logger=settings t=2024-01-17T08:58:28.163720484Z level=info msg="Config overridden from Environment variable" var="GF_PATHS_PLUGINS=/var/lib/grafana/plugins"
+logger=settings t=2024-01-17T08:58:28.163724751Z level=info msg="Config overridden from Environment variable" var="GF_PATHS_PROVISIONING=/etc/grafana/provisioning"
+logger=settings t=2024-01-17T08:58:28.163728847Z level=info msg="Config overridden from Environment variable" var="GF_SECURITY_ADMIN_USER=admin"
+logger=settings t=2024-01-17T08:58:28.163734618Z level=info msg="Config overridden from Environment variable" var="GF_SECURITY_ADMIN_PASSWORD=*********"
+logger=settings t=2024-01-17T08:58:28.163739808Z level=info msg=Target target=[all]
+logger=settings t=2024-01-17T08:58:28.16375107Z level=info msg="Path Home" path=/usr/share/grafana
+logger=settings t=2024-01-17T08:58:28.163763307Z level=info msg="Path Data" path=/var/lib/grafana/
+logger=settings t=2024-01-17T08:58:28.163769632Z level=info msg="Path Logs" path=/var/log/grafana
+logger=settings t=2024-01-17T08:58:28.163773638Z level=info msg="Path Plugins" path=/var/lib/grafana/plugins
+logger=settings t=2024-01-17T08:58:28.163777818Z level=info msg="Path Provisioning" path=/etc/grafana/provisioning
+logger=settings t=2024-01-17T08:58:28.163782196Z level=info msg="App mode production"
+logger=sqlstore t=2024-01-17T08:58:28.164314766Z level=info msg="Connecting to DB" dbtype=sqlite3
+logger=migrator t=2024-01-17T08:58:28.167974231Z level=info msg="Starting DB migrations"
+logger=migrator t=2024-01-17T08:58:28.280328257Z level=info msg="migrations completed" performed=0 skipped=523 duration=2.489497ms
+logger=secrets t=2024-01-17T08:58:28.282400489Z level=info msg="Envelope encryption state" enabled=true currentprovider=secretKey.v1
+logger=plugin.store t=2024-01-17T08:58:28.349761424Z level=info msg="Loading plugins..."
+logger=local.finder t=2024-01-17T08:58:28.575966966Z level=warn msg="Skipping finding plugins as directory does not exist" path=/usr/share/grafana/plugins-bundled
+logger=plugin.store t=2024-01-17T08:58:28.576289508Z level=info msg="Plugins loaded" count=55 duration=226.533492ms
+logger=query_data t=2024-01-17T08:58:28.595767962Z level=info msg="Query Service initialization"
+logger=live.push_http t=2024-01-17T08:58:28.608299406Z level=info msg="Live Push Gateway initialization"
+logger=ngalert.migration t=2024-01-17T08:58:28.627796566Z level=info msg=Starting
+logger=ngalert.migration CurrentType=UnifiedAlerting DesiredType=UnifiedAlerting CleanOnDowngrade=false CleanOnUpgrade=false t=2024-01-17T08:58:28.630329737Z level=info msg="Migration already complete"
+logger=infra.usagestats.collector t=2024-01-17T08:58:28.682637835Z level=info msg="registering usage stat providers" usageStatsProvidersLen=2
+logger=provisioning.alerting t=2024-01-17T08:58:28.816361933Z level=info msg="starting to provision alerting"
+logger=provisioning.alerting t=2024-01-17T08:58:28.816462668Z level=info msg="finished to provision alerting"
+logger=ngalert.state.manager t=2024-01-17T08:58:28.81822383Z level=info msg="Warming state cache for startup"
+logger=grafanaStorageLogger t=2024-01-17T08:58:28.828096529Z level=info msg="Storage starting"
+logger=ngalert.multiorg.alertmanager t=2024-01-17T08:58:28.828149209Z level=info msg="Starting MultiOrg Alertmanager"
+logger=http.server t=2024-01-17T08:58:28.835545819Z level=info msg="HTTP Server Listen" address=[::]:3000 protocol=http subUrl= socket=
+logger=ngalert.state.manager t=2024-01-17T08:58:28.924556574Z level=info msg="State cache has been initialized" states=0 duration=106.32609ms
+logger=ngalert.scheduler t=2024-01-17T08:58:28.924628464Z level=info msg="Starting scheduler" tickInterval=10s
+logger=ticker t=2024-01-17T08:58:28.935734034Z level=info msg=starting first_tick=2024-01-17T08:58:30Z
+logger=grafana.update.checker t=2024-01-17T08:58:38.824881295Z level=error msg="Update check failed" error="failed to get latest.json repo from github.com: Get \"https://raw.githubusercontent.com/grafana/grafana/main/latest.json\": dial tcp: lookup raw.githubusercontent.com: i/o timeout" duration=10.003251674s
+logger=context userId=0 orgId=0 uname= t=2024-01-17T08:58:49.944104974Z level=info msg="Request Completed" method=GET path=/api/live/ws status=401 remote_addr=127.0.0.1 time_ms=2 duration=2.164761ms size=105 referer= handler=/api/live/ws
+logger=context userId=0 orgId=0 uname= t=2024-01-17T08:58:57.454894215Z level=info msg="Request Completed" method=GET path=/api/live/ws status=401 remote_addr=127.0.0.1 time_ms=2 duration=2.40006ms size=105 referer= handler=/api/live/ws
+logger=context userId=0 orgId=0 uname= t=2024-01-17T08:59:03.816461671Z level=info msg="Request Completed" method=GET path=/api/search/sorting status=401 remote_addr=127.0.0.1 time_ms=2 duration=2.114356ms size=105 referer="http://192.168.0.107:3000/dashboards?starred=" handler=/api/search/sorting
+logger=context userId=0 orgId=0 uname= t=2024-01-17T08:59:03.842527061Z level=info msg="Request Completed" method=GET path=/api/folders status=401 remote_addr=127.0.0.1 time_ms=1 duration=1.044192ms size=105 referer="http://192.168.0.107:3000/dashboards?starred=" handler=/api/folders/
+logger=context userId=0 orgId=0 uname= t=2024-01-17T08:59:03.86437427Z level=info msg="Request Completed" method=GET path=/api/search status=401 remote_addr=127.0.0.1 time_ms=0 duration=548.178µs size=105 referer="http://192.168.0.107:3000/dashboards?starred=" handler=/api/search/
+logger=context userId=1 orgId=1 uname=admin t=2024-01-17T08:59:05.94368458Z level=info msg="Request Completed" method=GET path=/api/live/ws status=-1 remote_addr=127.0.0.1 time_ms=2 duration=2.139963ms size=0 referer= handler=/api/live/ws
+logger=infra.usagestats t=2024-01-17T08:59:17.864029104Z level=info msg="Usage stats are ready to report"
+logger=cleanup t=2024-01-17T09:08:28.895209626Z level=info msg="Completed cleanup jobs" duration=50.726746ms
+logger=grafana.update.checker t=2024-01-17T09:08:39.023539476Z level=info msg="Update check succeeded" duration=173.469413ms
+logger=plugins.update.checker t=2024-01-17T09:08:39.044642709Z level=info msg="Update check succeeded" duration=190.770057ms
+logger=cleanup t=2024-01-17T09:18:28.862174841Z level=info msg="Completed cleanup jobs" duration=8.595188ms
+logger=grafana.update.checker t=2024-01-17T09:18:38.970820587Z level=info msg="Update check succeeded" duration=110.693928ms
+logger=plugins.update.checker t=2024-01-17T09:18:38.981838883Z level=info msg="Update check succeeded" duration=118.642466ms
+logger=cleanup t=2024-01-17T09:28:28.87598512Z level=info msg="Completed cleanup jobs" duration=8.219233ms
+logger=grafana.update.checker t=2024-01-17T09:28:38.997761543Z level=info msg="Update check succeeded" duration=124.425377ms
+logger=plugins.update.checker t=2024-01-17T09:28:39.00718267Z level=info msg="Update check succeeded" duration=130.699002ms
+logger=infra.usagestats t=2024-01-17T09:29:17.962119834Z level=info msg="Usage stats are ready to report"
+logger=cleanup t=2024-01-17T09:38:28.858306443Z level=info msg="Completed cleanup jobs" duration=8.508576ms
+logger=plugins.update.checker t=2024-01-17T09:38:38.975300622Z level=info msg="Update check succeeded" duration=116.177ms
+logger=grafana.update.checker t=2024-01-17T09:38:38.977060266Z level=info msg="Update check succeeded" duration=121.151893ms
+logger=cleanup t=2024-01-17T09:48:28.858740728Z level=info msg="Completed cleanup jobs" duration=8.549602ms
+logger=grafana.update.checker t=2024-01-17T09:48:38.967715317Z level=info msg="Update check succeeded" duration=112.125798ms
+logger=plugins.update.checker t=2024-01-17T09:48:38.977799272Z level=info msg="Update check succeeded" duration=118.713209ms
+logger=cleanup t=2024-01-17T09:58:28.876824659Z level=info msg="Completed cleanup jobs" duration=9.126631ms
+logger=plugins.update.checker t=2024-01-17T09:58:39.000416405Z level=info msg="Update check succeeded" duration=122.854466ms
+logger=grafana.update.checker t=2024-01-17T09:58:39.014383136Z level=info msg="Update check succeeded" duration=140.064809ms
+logger=infra.usagestats t=2024-01-17T09:59:17.957822951Z level=info msg="Usage stats are ready to report"
+logger=cleanup t=2024-01-17T10:08:28.889845437Z level=info msg="Completed cleanup jobs" duration=2.489508ms
+logger=grafana.update.checker t=2024-01-17T10:08:39.014130933Z level=info msg="Update check succeeded" duration=120.651821ms
+logger=plugins.update.checker t=2024-01-17T10:08:39.014940097Z level=info msg="Update check succeeded" duration=118.925441ms
+logger=context userId=0 orgId=0 uname= t=2024-01-17T10:10:31.808608416Z level=info msg="Request Completed" method=GET path=/dashboards status=302 remote_addr=127.0.0.1 time_ms=2 duration=2.081107ms size=47 referer= handler=/dashboards/
+logger=context userId=0 orgId=0 uname= t=2024-01-17T10:10:31.842181202Z level=info msg="Request Completed" method=GET path=/user/auth-tokens/rotate status=302 remote_addr=127.0.0.1 time_ms=22 duration=22.575452ms size=42 referer= handler=/user/auth-tokens/rotate
+logger=context userId=1 orgId=1 uname=admin t=2024-01-17T10:10:32.778820427Z level=info msg="Request Completed" method=GET path=/api/live/ws status=-1 remote_addr=127.0.0.1 time_ms=4 duration=4.932635ms size=0 referer= handler=/api/live/ws
+logger=live t=2024-01-17T10:10:43.262319491Z level=info msg="Initialized channel handler" channel=grafana/dashboard/uid/isFoa0z7k address=grafana/dashboard/uid/isFoa0z7k
+logger=live t=2024-01-17T10:10:51.930390363Z level=info msg="Initialized channel handler" channel=grafana/dashboard/uid/alertmanager-overview address=grafana/dashboard/uid/alertmanager-overview
+logger=cleanup t=2024-01-17T10:18:28.914311121Z level=info msg="Completed cleanup jobs" duration=8.277739ms
+logger=grafana.update.checker t=2024-01-17T10:18:39.020878876Z level=info msg="Update check succeeded" duration=107.701389ms
+logger=plugins.update.checker t=2024-01-17T10:18:39.029566641Z level=info msg="Update check succeeded" duration=113.859161ms
+logger=cleanup t=2024-01-17T10:28:28.892902461Z level=info msg="Completed cleanup jobs" duration=8.40935ms
+logger=grafana.update.checker t=2024-01-17T10:28:39.01150882Z level=info msg="Update check succeeded" duration=121.968356ms
+logger=plugins.update.checker t=2024-01-17T10:28:39.053302008Z level=info msg="Update check succeeded" duration=159.988383ms
+logger=infra.usagestats t=2024-01-17T10:29:17.967394875Z level=info msg="Usage stats are ready to report"
+logger=context userId=1 orgId=1 uname=admin t=2024-01-17T10:36:44.817714484Z level=info msg="Request Completed" method=GET path=/api/live/ws status=-1 remote_addr=127.0.0.1 time_ms=13 duration=13.131687ms size=0 referer= handler=/api/live/ws
+logger=cleanup t=2024-01-17T10:38:28.847306143Z level=info msg="Completed cleanup jobs" duration=7.739772ms
+logger=plugins.update.checker t=2024-01-17T10:38:38.968969285Z level=info msg="Update check succeeded" duration=120.179012ms
+logger=grafana.update.checker t=2024-01-17T10:38:38.97002523Z level=info msg="Update check succeeded" duration=124.418898ms
+logger=cleanup t=2024-01-17T10:48:28.833477547Z level=info msg="Completed cleanup jobs" duration=7.743099ms
+logger=grafana.update.checker t=2024-01-17T10:48:38.940839095Z level=info msg="Update check succeeded" duration=108.953809ms
+logger=plugins.update.checker t=2024-01-17T10:48:38.950190911Z level=info msg="Update check succeeded" duration=115.119848ms
+logger=cleanup t=2024-01-17T10:58:28.828378084Z level=info msg="Completed cleanup jobs" duration=7.427964ms
+logger=grafana.update.checker t=2024-01-17T10:58:38.933277235Z level=info msg="Update check succeeded" duration=105.515166ms
+logger=plugins.update.checker t=2024-01-17T10:58:39.0637383Z level=info msg="Update check succeeded" duration=233.006708ms
+logger=infra.usagestats t=2024-01-17T10:59:17.912978834Z level=info msg="Usage stats are ready to report"
+logger=cleanup t=2024-01-17T11:08:28.829814426Z level=info msg="Completed cleanup jobs" duration=8.200725ms
+logger=grafana.update.checker t=2024-01-17T11:08:38.948323895Z level=info msg="Update check succeeded" duration=120.3433ms
+logger=plugins.update.checker t=2024-01-17T11:08:38.952357139Z level=info msg="Update check succeeded" duration=121.89541ms
+logger=cleanup t=2024-01-17T11:18:28.82948722Z level=info msg="Completed cleanup jobs" duration=7.77939ms
+logger=grafana.update.checker t=2024-01-17T11:18:38.936593478Z level=info msg="Update check succeeded" duration=109.496726ms
+logger=plugins.update.checker t=2024-01-17T11:18:38.948559175Z level=info msg="Update check succeeded" duration=117.654619ms
+logger=cleanup t=2024-01-17T11:28:28.82862007Z level=info msg="Completed cleanup jobs" duration=7.60309ms
+logger=grafana.update.checker t=2024-01-17T11:28:38.939949543Z level=info msg="Update check succeeded" duration=112.895233ms
+logger=plugins.update.checker t=2024-01-17T11:28:38.948839904Z level=info msg="Update check succeeded" duration=118.142691ms
+logger=infra.usagestats t=2024-01-17T11:29:17.91212566Z level=info msg="Usage stats are ready to report"
+logger=cleanup t=2024-01-17T11:38:28.829105342Z level=info msg="Completed cleanup jobs" duration=7.581522ms
+logger=plugins.update.checker t=2024-01-17T11:38:38.942538696Z level=info msg="Update check succeeded" duration=112.149441ms
+logger=grafana.update.checker t=2024-01-17T11:38:38.942774523Z level=info msg="Update check succeeded" duration=114.824461ms
+logger=cleanup t=2024-01-17T11:48:28.828344288Z level=info msg="Completed cleanup jobs" duration=7.110847ms
+logger=plugins.update.checker t=2024-01-17T11:48:38.939160382Z level=info msg="Update check succeeded" duration=109.055619ms
+logger=grafana.update.checker t=2024-01-17T11:48:38.943381624Z level=info msg="Update check succeeded" duration=115.916379ms
+==== END logs for container grafana of pod default/monitoring-grafana-85c785d9f9-fhthl ====

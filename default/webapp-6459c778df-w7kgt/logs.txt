@@ -1,0 +1,2 @@
+==== START logs for container webapp of pod default/webapp-6459c778df-w7kgt ====
+==== END logs for container webapp of pod default/webapp-6459c778df-w7kgt ====

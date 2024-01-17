@@ -1,0 +1,158 @@
+---
+apiVersion: v1
+items:
+- count: 1
+  eventTime: null
+  firstTimestamp: "2024-01-17T11:14:56Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{webapp}
+    kind: Pod
+    name: webapp-6459c778df-5l67q
+    namespace: default
+    resourceVersion: "571564"
+    uid: 0a74c463-f0e4-441e-8410-3f135b1ac812
+  lastTimestamp: "2024-01-17T11:14:56Z"
+  message: Stopping container webapp
+  metadata:
+    creationTimestamp: "2024-01-17T11:14:56Z"
+    name: webapp-6459c778df-5l67q.17ab1e34f0fd162c
+    namespace: default
+    resourceVersion: "690371"
+    uid: a8fb2dd0-c9e7-45b5-b503-7af9a9aa35a9
+  reason: Killing
+  reportingComponent: kubelet
+  reportingInstance: docker-desktop
+  source:
+    component: kubelet
+    host: docker-desktop
+  type: Normal
+- action: Binding
+  eventTime: "2024-01-17T11:14:56.642676Z"
+  firstTimestamp: null
+  involvedObject:
+    apiVersion: v1
+    kind: Pod
+    name: webapp-6459c778df-w7kgt
+    namespace: default
+    resourceVersion: "690372"
+    uid: f5f5c356-d5c3-43d3-acfb-6ebebcd7ec4b
+  lastTimestamp: null
+  message: Successfully assigned default/webapp-6459c778df-w7kgt to docker-desktop
+  metadata:
+    creationTimestamp: "2024-01-17T11:14:56Z"
+    name: webapp-6459c778df-w7kgt.17ab1e34f2557d6c
+    namespace: default
+    resourceVersion: "690376"
+    uid: 2aa785b2-818a-4d93-bf47-0b44c1e75955
+  reason: Scheduled
+  reportingComponent: default-scheduler
+  reportingInstance: default-scheduler-docker-desktop
+  source: {}
+  type: Normal
+- count: 1
+  eventTime: null
+  firstTimestamp: "2024-01-17T11:14:57Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{webapp}
+    kind: Pod
+    name: webapp-6459c778df-w7kgt
+    namespace: default
+    resourceVersion: "690374"
+    uid: f5f5c356-d5c3-43d3-acfb-6ebebcd7ec4b
+  lastTimestamp: "2024-01-17T11:14:57Z"
+  message: Container image "richardchesterwood/k8s-fleetman-helm-demo:v1.0.0-dev"
+    already present on machine
+  metadata:
+    creationTimestamp: "2024-01-17T11:14:57Z"
+    name: webapp-6459c778df-w7kgt.17ab1e350dc3ae28
+    namespace: default
+    resourceVersion: "690384"
+    uid: da716e5e-c3ff-451d-92e6-c23374b6afad
+  reason: Pulled
+  reportingComponent: kubelet
+  reportingInstance: docker-desktop
+  source:
+    component: kubelet
+    host: docker-desktop
+  type: Normal
+- count: 1
+  eventTime: null
+  firstTimestamp: "2024-01-17T11:14:57Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{webapp}
+    kind: Pod
+    name: webapp-6459c778df-w7kgt
+    namespace: default
+    resourceVersion: "690374"
+    uid: f5f5c356-d5c3-43d3-acfb-6ebebcd7ec4b
+  lastTimestamp: "2024-01-17T11:14:57Z"
+  message: Created container webapp
+  metadata:
+    creationTimestamp: "2024-01-17T11:14:57Z"
+    name: webapp-6459c778df-w7kgt.17ab1e350f3bc295
+    namespace: default
+    resourceVersion: "690387"
+    uid: e15dc875-70bf-4e3c-92d6-f9b8ac662614
+  reason: Created
+  reportingComponent: kubelet
+  reportingInstance: docker-desktop
+  source:
+    component: kubelet
+    host: docker-desktop
+  type: Normal
+- count: 1
+  eventTime: null
+  firstTimestamp: "2024-01-17T11:14:57Z"
+  involvedObject:
+    apiVersion: v1
+    fieldPath: spec.containers{webapp}
+    kind: Pod
+    name: webapp-6459c778df-w7kgt
+    namespace: default
+    resourceVersion: "690374"
+    uid: f5f5c356-d5c3-43d3-acfb-6ebebcd7ec4b
+  lastTimestamp: "2024-01-17T11:14:57Z"
+  message: Started container webapp
+  metadata:
+    creationTimestamp: "2024-01-17T11:14:57Z"
+    name: webapp-6459c778df-w7kgt.17ab1e351290debf
+    namespace: default
+    resourceVersion: "690388"
+    uid: 206126d8-0c26-470d-8924-fc0d63d1faa4
+  reason: Started
+  reportingComponent: kubelet
+  reportingInstance: docker-desktop
+  source:
+    component: kubelet
+    host: docker-desktop
+  type: Normal
+- count: 1
+  eventTime: null
+  firstTimestamp: "2024-01-17T11:14:56Z"
+  involvedObject:
+    apiVersion: apps/v1
+    kind: ReplicaSet
+    name: webapp-6459c778df
+    namespace: default
+    resourceVersion: "678492"
+    uid: 49e18a6d-c0a1-48ee-b0ae-46ecb7873020
+  lastTimestamp: "2024-01-17T11:14:56Z"
+  message: 'Created pod: webapp-6459c778df-w7kgt'
+  metadata:
+    creationTimestamp: "2024-01-17T11:14:56Z"
+    name: webapp-6459c778df.17ab1e34f214ead7
+    namespace: default
+    resourceVersion: "690373"
+    uid: 14b98b2b-76c1-4266-a6f7-6faa7f901150
+  reason: SuccessfulCreate
+  reportingComponent: replicaset-controller
+  reportingInstance: ""
+  source:
+    component: replicaset-controller
+  type: Normal
+kind: EventList
+metadata:
+  resourceVersion: "693283"

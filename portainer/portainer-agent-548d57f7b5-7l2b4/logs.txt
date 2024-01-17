@@ -1,0 +1,10 @@
+==== START logs for container portainer-agent of pod portainer/portainer-agent-548d57f7b5-7l2b4 ====
+2024/01/17 08:59AM INF github.com/portainer/agent/cmd/agent/main.go:166 > agent running on Kubernetes platform |
+2024/01/17 08:59AM DBG github.com/portainer/agent/net/lookup.go:22 > host=portainer-agent-headless ip=10.1.0.55 result=1
+2024/01/17 08:59AM DBG github.com/portainer/agent/serf/cluster.go:79 > advertise_address=10.1.0.55 join_address=["10.1.0.55"]
+2024/01/17 08:59:11 [INFO] serf: EventMemberJoin: -portainer-agent-548d57f7b5-7l2b4 10.1.0.55
+2024/01/17 08:59AM DBG github.com/portainer/agent/serf/cluster.go:91 > contacted_nodes=1
+2024/01/17 08:59AM DBG github.com/portainer/agent/cmd/agent/main.go:208 > advertise_address=10.1.0.55 agent_port=9001 cluster_address=portainer-agent-headless probe_interval=1s probe_timeout=500ms
+2024/01/17 08:59AM INF github.com/portainer/agent/edge/registry/server.go:101 > starting registry credential server |
+2024/01/17 08:59AM INF github.com/portainer/agent/http/server.go:99 > starting Agent API server | api_version=2.19.4 server_addr=0.0.0.0 server_port=9001 use_tls=true
+==== END logs for container portainer-agent of pod portainer/portainer-agent-548d57f7b5-7l2b4 ====

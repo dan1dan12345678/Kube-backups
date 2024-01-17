@@ -1,0 +1,19 @@
+==== START logs for container kube-state-metrics of pod default/monitoring-kube-state-metrics-59c7c8b996-qndtl ====
+I0117 08:58:25.114049       1 wrapper.go:120] "Starting kube-state-metrics"
+W0117 08:58:25.121183       1 client_config.go:618] Neither --kubeconfig nor --master was specified.  Using the inClusterConfig.  This might not work.
+I0117 08:58:25.122130       1 server.go:198] "Used resources" resources=["replicasets","horizontalpodautoscalers","persistentvolumeclaims","secrets","certificatesigningrequests","configmaps","daemonsets","leases","limitranges","nodes","services","validatingwebhookconfigurations","networkpolicies","replicationcontrollers","resourcequotas","endpoints","ingresses","pods","persistentvolumes","deployments","jobs","namespaces","storageclasses","cronjobs","mutatingwebhookconfigurations","poddisruptionbudgets","statefulsets","volumeattachments"]
+I0117 08:58:25.130529       1 types.go:184] "Using all namespaces"
+I0117 08:58:25.130871       1 server.go:225] "Metric allow-denylisting" allowDenyStatus="Excluding the following lists that were on denylist: "
+W0117 08:58:25.130930       1 client_config.go:618] Neither --kubeconfig nor --master was specified.  Using the inClusterConfig.  This might not work.
+I0117 08:58:25.158081       1 utils.go:70] "Tested communication with server"
+I0117 08:58:25.194737       1 utils.go:75] "Run with Kubernetes cluster version" major="1" minor="28" gitVersion="v1.28.2" gitTreeState="clean" gitCommit="89a4ea3e1e4ddd7f7572286090359983e0387b2f" platform="linux/amd64"
+I0117 08:58:25.194778       1 utils.go:76] "Communication with server successful"
+I0117 08:58:25.195847       1 server.go:347] "Started metrics server" metricsServerAddress="[::]:8080"
+I0117 08:58:25.197200       1 server.go:336] "Started kube-state-metrics self metrics server" telemetryAddress="[::]:8081"
+I0117 08:58:25.197957       1 server.go:72] levelinfomsgListening onaddress[::]:8081
+I0117 08:58:25.198015       1 server.go:72] levelinfomsgTLS is disabled.http2falseaddress[::]:8081
+I0117 08:58:25.198126       1 metrics_handler.go:99] "Autosharding disabled"
+I0117 08:58:25.198510       1 server.go:72] levelinfomsgListening onaddress[::]:8080
+I0117 08:58:25.198535       1 server.go:72] levelinfomsgTLS is disabled.http2falseaddress[::]:8080
+I0117 08:58:25.200584       1 builder.go:271] "Active resources" activeStoreNames="certificatesigningrequests,configmaps,cronjobs,daemonsets,deployments,endpoints,horizontalpodautoscalers,ingresses,jobs,leases,limitranges,mutatingwebhookconfigurations,namespaces,networkpolicies,nodes,persistentvolumeclaims,persistentvolumes,poddisruptionbudgets,pods,replicasets,replicationcontrollers,resourcequotas,secrets,services,statefulsets,storageclasses,validatingwebhookconfigurations,volumeattachments"
+==== END logs for container kube-state-metrics of pod default/monitoring-kube-state-metrics-59c7c8b996-qndtl ====

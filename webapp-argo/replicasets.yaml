@@ -1,0 +1,58 @@
+---
+apiVersion: apps/v1
+items:
+- metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "1"
+      deployment.kubernetes.io/max-replicas: "2"
+      deployment.kubernetes.io/revision: "1"
+    creationTimestamp: "2024-01-17T10:59:58Z"
+    generation: 1
+    labels:
+      app: webapp
+      pod-template-hash: 5d988d777f
+    name: webapp-5d988d777f
+    namespace: webapp-argo
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: webapp
+      uid: 42e05580-5584-4a1f-bc91-d8a00715d604
+    resourceVersion: "689165"
+    uid: 51dabb3f-8524-4bf8-a69d-35a947e2ba42
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app: webapp
+        pod-template-hash: 5d988d777f
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: webapp
+          pod-template-hash: 5d988d777f
+      spec:
+        containers:
+        - image: richardchesterwood/k8s-fleetman-helm-demo:v1.0.0
+          imagePullPolicy: IfNotPresent
+          name: webapp
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 1
+    fullyLabeledReplicas: 1
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+kind: ReplicaSetList
+metadata:
+  resourceVersion: "693287"

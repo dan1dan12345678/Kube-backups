@@ -1,0 +1,111 @@
+---
+apiVersion: v1
+items:
+- metadata:
+    creationTimestamp: "2024-01-17T10:59:58Z"
+    generateName: webapp-5d988d777f-
+    labels:
+      app: webapp
+      pod-template-hash: 5d988d777f
+    name: webapp-5d988d777f-qcmts
+    namespace: webapp-argo
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: webapp-5d988d777f
+      uid: 51dabb3f-8524-4bf8-a69d-35a947e2ba42
+    resourceVersion: "689162"
+    uid: 4412f074-8ea6-46be-bb9f-a473a8ff4e9c
+  spec:
+    containers:
+    - image: richardchesterwood/k8s-fleetman-helm-demo:v1.0.0
+      imagePullPolicy: IfNotPresent
+      name: webapp
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-2t887
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: docker-desktop
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: kube-api-access-2t887
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2024-01-17T10:59:58Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2024-01-17T11:00:00Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2024-01-17T11:00:00Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2024-01-17T10:59:58Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: docker://d02f286a9c8c5af03a08d291a2ab727817e93468b28ce04a23090ab9c54ddacc
+      image: richardchesterwood/k8s-fleetman-helm-demo:v1.0.0
+      imageID: docker-pullable://richardchesterwood/k8s-fleetman-helm-demo@sha256:197f07fd1057582e9972a5f6e9af54e6a0a6c465c56f9eae1e410680d69d4bae
+      lastState: {}
+      name: webapp
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2024-01-17T10:59:59Z"
+    hostIP: 192.168.65.9
+    phase: Running
+    podIP: 10.1.0.73
+    podIPs:
+    - ip: 10.1.0.73
+    qosClass: BestEffort
+    startTime: "2024-01-17T10:59:58Z"
+kind: PodList
+metadata:
+  resourceVersion: "693288"

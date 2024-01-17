@@ -1,0 +1,14 @@
+==== START logs for container copyutil of pod argocd/argocd-dex-server-7bb445db59-m2pnc ====
+==== END logs for container copyutil of pod argocd/argocd-dex-server-7bb445db59-m2pnc ====
+==== START logs for container dex of pod argocd/argocd-dex-server-7bb445db59-m2pnc ====
+time="2024-01-17T08:59:23Z" level=info msg="ArgoCD Dex Server is starting" built="2023-12-01T23:05:50Z" commit=6eba5be864b7e031871ed7698f5233336dfe75c7 namespace=argocd version=v2.9.3+6eba5be
+time="2024-01-17T08:59:23Z" level=info msg="Generating self-signed TLS certificate for this session"
+time="2024-01-17T08:59:23Z" level=info msg="Starting configmap/secret informers"
+time="2024-01-17T08:59:23Z" level=info msg="Configmap/secret informer synced"
+time="2024-01-17T08:59:23Z" level=info msg="0xc000e30300 subscribed to settings updates"
+time="2024-01-17T08:59:23Z" level=info msg="dex is not configured"
+time="2024-01-17T10:02:21Z" level=info msg="Notifying 1 settings subscribers: [0xc000e30300]"
+time="2024-01-17T10:02:21Z" level=info msg="dex config unmodified"
+time="2024-01-17T10:06:59Z" level=info msg="Notifying 1 settings subscribers: [0xc000e30300]"
+time="2024-01-17T10:06:59Z" level=info msg="dex config unmodified"
+==== END logs for container dex of pod argocd/argocd-dex-server-7bb445db59-m2pnc ====

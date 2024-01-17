@@ -1,0 +1,878 @@
+---
+apiVersion: apps/v1
+items:
+- metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "1"
+      deployment.kubernetes.io/max-replicas: "2"
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: monitoring
+      meta.helm.sh/release-namespace: default
+    creationTimestamp: "2024-01-15T11:10:22Z"
+    generation: 2
+    labels:
+      app.kubernetes.io/instance: monitoring
+      app.kubernetes.io/name: grafana
+      pod-template-hash: 77f58545c
+    name: monitoring-grafana-77f58545c
+    namespace: default
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: monitoring-grafana
+      uid: d3e62804-472e-41c7-848d-5df67bb366b6
+    resourceVersion: "462658"
+    uid: 2b37a76d-195d-4ada-8a3d-6483576c910c
+  spec:
+    replicas: 0
+    selector:
+      matchLabels:
+        app.kubernetes.io/instance: monitoring
+        app.kubernetes.io/name: grafana
+        pod-template-hash: 77f58545c
+    template:
+      metadata:
+        annotations:
+          checksum/config: 0e9cbd0ea8e24e32f7dfca5bab17a2ba05652642f0a09a4882833ae88e4cc4a3
+          checksum/sc-dashboard-provider-config: 593c0a8778b83f11fe80ccb21dfb20bc46705e2be3178df1dc4c89d164c8cd9c
+          checksum/secret: 032056e9c62bbe9d1daa41ee49cd3d9524c076f51ca4c65adadf4ef08ef28712
+          kubectl.kubernetes.io/default-container: grafana
+        creationTimestamp: null
+        labels:
+          app.kubernetes.io/instance: monitoring
+          app.kubernetes.io/name: grafana
+          pod-template-hash: 77f58545c
+      spec:
+        automountServiceAccountToken: true
+        containers:
+        - env:
+          - name: METHOD
+            value: WATCH
+          - name: LABEL
+            value: grafana_dashboard
+          - name: LABEL_VALUE
+            value: "1"
+          - name: FOLDER
+            value: /tmp/dashboards
+          - name: RESOURCE
+            value: both
+          - name: NAMESPACE
+            value: ALL
+          - name: REQ_USERNAME
+            valueFrom:
+              secretKeyRef:
+                key: admin-user
+                name: monitoring-grafana
+          - name: REQ_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                key: admin-password
+                name: monitoring-grafana
+          - name: REQ_URL
+            value: http://localhost:3000/api/admin/provisioning/dashboards/reload
+          - name: REQ_METHOD
+            value: POST
+          image: quay.io/kiwigrid/k8s-sidecar:1.25.2
+          imagePullPolicy: IfNotPresent
+          name: grafana-sc-dashboard
+          resources: {}
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+              - ALL
+            seccompProfile:
+              type: RuntimeDefault
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /tmp/dashboards
+            name: sc-dashboard-volume
+        - env:
+          - name: METHOD
+            value: WATCH
+          - name: LABEL
+            value: grafana_datasource
+          - name: LABEL_VALUE
+            value: "1"
+          - name: FOLDER
+            value: /etc/grafana/provisioning/datasources
+          - name: RESOURCE
+            value: both
+          - name: REQ_USERNAME
+            valueFrom:
+              secretKeyRef:
+                key: admin-user
+                name: monitoring-grafana
+          - name: REQ_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                key: admin-password
+                name: monitoring-grafana
+          - name: REQ_URL
+            value: http://localhost:3000/api/admin/provisioning/datasources/reload
+          - name: REQ_METHOD
+            value: POST
+          image: quay.io/kiwigrid/k8s-sidecar:1.25.2
+          imagePullPolicy: IfNotPresent
+          name: grafana-sc-datasources
+          resources: {}
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+              - ALL
+            seccompProfile:
+              type: RuntimeDefault
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /etc/grafana/provisioning/datasources
+            name: sc-datasources-volume
+        - env:
+          - name: POD_IP
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: status.podIP
+          - name: GF_SECURITY_ADMIN_USER
+            valueFrom:
+              secretKeyRef:
+                key: admin-user
+                name: monitoring-grafana
+          - name: GF_SECURITY_ADMIN_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                key: admin-password
+                name: monitoring-grafana
+          - name: GF_PATHS_DATA
+            value: /var/lib/grafana/
+          - name: GF_PATHS_LOGS
+            value: /var/log/grafana
+          - name: GF_PATHS_PLUGINS
+            value: /var/lib/grafana/plugins
+          - name: GF_PATHS_PROVISIONING
+            value: /etc/grafana/provisioning
+          image: docker.io/grafana/grafana:10.2.3
+          imagePullPolicy: IfNotPresent
+          livenessProbe:
+            failureThreshold: 10
+            httpGet:
+              path: /api/health
+              port: 3000
+              scheme: HTTP
+            initialDelaySeconds: 60
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 30
+          name: grafana
+          ports:
+          - containerPort: 3000
+            name: grafana
+            protocol: TCP
+          - containerPort: 9094
+            name: gossip-tcp
+            protocol: TCP
+          - containerPort: 9094
+            name: gossip-udp
+            protocol: UDP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /api/health
+              port: 3000
+              scheme: HTTP
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          resources: {}
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+              - ALL
+            seccompProfile:
+              type: RuntimeDefault
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /etc/grafana/grafana.ini
+            name: config
+            subPath: grafana.ini
+          - mountPath: /var/lib/grafana
+            name: storage
+          - mountPath: /tmp/dashboards
+            name: sc-dashboard-volume
+          - mountPath: /etc/grafana/provisioning/dashboards/sc-dashboardproviders.yaml
+            name: sc-dashboard-provider
+            subPath: provider.yaml
+          - mountPath: /etc/grafana/provisioning/datasources
+            name: sc-datasources-volume
+        dnsPolicy: ClusterFirst
+        enableServiceLinks: true
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext:
+          fsGroup: 472
+          runAsGroup: 472
+          runAsNonRoot: true
+          runAsUser: 472
+        serviceAccount: monitoring-grafana
+        serviceAccountName: monitoring-grafana
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: monitoring-grafana
+          name: config
+        - emptyDir: {}
+          name: storage
+        - emptyDir: {}
+          name: sc-dashboard-volume
+        - configMap:
+            defaultMode: 420
+            name: monitoring-grafana-config-dashboards
+          name: sc-dashboard-provider
+        - emptyDir: {}
+          name: sc-datasources-volume
+  status:
+    observedGeneration: 2
+    replicas: 0
+- metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "1"
+      deployment.kubernetes.io/max-replicas: "2"
+      deployment.kubernetes.io/revision: "2"
+      meta.helm.sh/release-name: monitoring
+      meta.helm.sh/release-namespace: default
+    creationTimestamp: "2024-01-15T11:56:00Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: monitoring
+      app.kubernetes.io/name: grafana
+      pod-template-hash: 85c785d9f9
+    name: monitoring-grafana-85c785d9f9
+    namespace: default
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: monitoring-grafana
+      uid: d3e62804-472e-41c7-848d-5df67bb366b6
+    resourceVersion: "678568"
+    uid: 315e57ca-43c3-4628-98e1-7d35d861944a
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app.kubernetes.io/instance: monitoring
+        app.kubernetes.io/name: grafana
+        pod-template-hash: 85c785d9f9
+    template:
+      metadata:
+        annotations:
+          checksum/config: 0e9cbd0ea8e24e32f7dfca5bab17a2ba05652642f0a09a4882833ae88e4cc4a3
+          checksum/sc-dashboard-provider-config: 593c0a8778b83f11fe80ccb21dfb20bc46705e2be3178df1dc4c89d164c8cd9c
+          checksum/secret: bed677784356b2af7fb0d87455db21f077853059b594101a4f6532bfbd962a7f
+          kubectl.kubernetes.io/default-container: grafana
+        creationTimestamp: null
+        labels:
+          app.kubernetes.io/instance: monitoring
+          app.kubernetes.io/name: grafana
+          pod-template-hash: 85c785d9f9
+      spec:
+        automountServiceAccountToken: true
+        containers:
+        - env:
+          - name: METHOD
+            value: WATCH
+          - name: LABEL
+            value: grafana_dashboard
+          - name: LABEL_VALUE
+            value: "1"
+          - name: FOLDER
+            value: /tmp/dashboards
+          - name: RESOURCE
+            value: both
+          - name: NAMESPACE
+            value: ALL
+          - name: REQ_USERNAME
+            valueFrom:
+              secretKeyRef:
+                key: admin-user
+                name: monitoring-grafana
+          - name: REQ_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                key: admin-password
+                name: monitoring-grafana
+          - name: REQ_URL
+            value: http://localhost:3000/api/admin/provisioning/dashboards/reload
+          - name: REQ_METHOD
+            value: POST
+          image: quay.io/kiwigrid/k8s-sidecar:1.25.2
+          imagePullPolicy: IfNotPresent
+          name: grafana-sc-dashboard
+          resources: {}
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+              - ALL
+            seccompProfile:
+              type: RuntimeDefault
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /tmp/dashboards
+            name: sc-dashboard-volume
+        - env:
+          - name: METHOD
+            value: WATCH
+          - name: LABEL
+            value: grafana_datasource
+          - name: LABEL_VALUE
+            value: "1"
+          - name: FOLDER
+            value: /etc/grafana/provisioning/datasources
+          - name: RESOURCE
+            value: both
+          - name: REQ_USERNAME
+            valueFrom:
+              secretKeyRef:
+                key: admin-user
+                name: monitoring-grafana
+          - name: REQ_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                key: admin-password
+                name: monitoring-grafana
+          - name: REQ_URL
+            value: http://localhost:3000/api/admin/provisioning/datasources/reload
+          - name: REQ_METHOD
+            value: POST
+          image: quay.io/kiwigrid/k8s-sidecar:1.25.2
+          imagePullPolicy: IfNotPresent
+          name: grafana-sc-datasources
+          resources: {}
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+              - ALL
+            seccompProfile:
+              type: RuntimeDefault
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /etc/grafana/provisioning/datasources
+            name: sc-datasources-volume
+        - env:
+          - name: POD_IP
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: status.podIP
+          - name: GF_SECURITY_ADMIN_USER
+            valueFrom:
+              secretKeyRef:
+                key: admin-user
+                name: monitoring-grafana
+          - name: GF_SECURITY_ADMIN_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                key: admin-password
+                name: monitoring-grafana
+          - name: GF_PATHS_DATA
+            value: /var/lib/grafana/
+          - name: GF_PATHS_LOGS
+            value: /var/log/grafana
+          - name: GF_PATHS_PLUGINS
+            value: /var/lib/grafana/plugins
+          - name: GF_PATHS_PROVISIONING
+            value: /etc/grafana/provisioning
+          image: docker.io/grafana/grafana:10.2.3
+          imagePullPolicy: IfNotPresent
+          livenessProbe:
+            failureThreshold: 10
+            httpGet:
+              path: /api/health
+              port: 3000
+              scheme: HTTP
+            initialDelaySeconds: 60
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 30
+          name: grafana
+          ports:
+          - containerPort: 3000
+            name: grafana
+            protocol: TCP
+          - containerPort: 9094
+            name: gossip-tcp
+            protocol: TCP
+          - containerPort: 9094
+            name: gossip-udp
+            protocol: UDP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /api/health
+              port: 3000
+              scheme: HTTP
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          resources: {}
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+              - ALL
+            seccompProfile:
+              type: RuntimeDefault
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /etc/grafana/grafana.ini
+            name: config
+            subPath: grafana.ini
+          - mountPath: /var/lib/grafana
+            name: storage
+          - mountPath: /tmp/dashboards
+            name: sc-dashboard-volume
+          - mountPath: /etc/grafana/provisioning/dashboards/sc-dashboardproviders.yaml
+            name: sc-dashboard-provider
+            subPath: provider.yaml
+          - mountPath: /etc/grafana/provisioning/datasources
+            name: sc-datasources-volume
+        dnsPolicy: ClusterFirst
+        enableServiceLinks: true
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext:
+          fsGroup: 472
+          runAsGroup: 472
+          runAsNonRoot: true
+          runAsUser: 472
+        serviceAccount: monitoring-grafana
+        serviceAccountName: monitoring-grafana
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: monitoring-grafana
+          name: config
+        - emptyDir: {}
+          name: storage
+        - emptyDir: {}
+          name: sc-dashboard-volume
+        - configMap:
+            defaultMode: 420
+            name: monitoring-grafana-config-dashboards
+          name: sc-dashboard-provider
+        - emptyDir: {}
+          name: sc-datasources-volume
+  status:
+    availableReplicas: 1
+    fullyLabeledReplicas: 1
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+- metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "1"
+      deployment.kubernetes.io/max-replicas: "2"
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: monitoring
+      meta.helm.sh/release-namespace: default
+    creationTimestamp: "2024-01-15T11:10:22Z"
+    generation: 1
+    labels:
+      app: kube-prometheus-stack-operator
+      app.kubernetes.io/instance: monitoring
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/part-of: kube-prometheus-stack
+      app.kubernetes.io/version: 55.8.1
+      chart: kube-prometheus-stack-55.8.1
+      heritage: Helm
+      pod-template-hash: 5684b8d6b5
+      release: monitoring
+    name: monitoring-kube-prometheus-operator-5684b8d6b5
+    namespace: default
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: monitoring-kube-prometheus-operator
+      uid: 3e5d3775-0455-4760-ae69-4148ccaae3c4
+    resourceVersion: "678540"
+    uid: 754133e6-fd00-4606-8679-4f37f0be2447
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app: kube-prometheus-stack-operator
+        pod-template-hash: 5684b8d6b5
+        release: monitoring
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: kube-prometheus-stack-operator
+          app.kubernetes.io/instance: monitoring
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/part-of: kube-prometheus-stack
+          app.kubernetes.io/version: 55.8.1
+          chart: kube-prometheus-stack-55.8.1
+          heritage: Helm
+          pod-template-hash: 5684b8d6b5
+          release: monitoring
+      spec:
+        containers:
+        - args:
+          - --kubelet-service=kube-system/monitoring-kube-prometheus-kubelet
+          - --localhost=127.0.0.1
+          - --prometheus-config-reloader=quay.io/prometheus-operator/prometheus-config-reloader:v0.70.0
+          - --config-reloader-cpu-request=0
+          - --config-reloader-cpu-limit=0
+          - --config-reloader-memory-request=0
+          - --config-reloader-memory-limit=0
+          - --thanos-default-base-image=quay.io/thanos/thanos:v0.33.0
+          - --secret-field-selector=type!=kubernetes.io/dockercfg,type!=kubernetes.io/service-account-token,type!=helm.sh/release.v1
+          - --web.enable-tls=true
+          - --web.cert-file=/cert/cert
+          - --web.key-file=/cert/key
+          - --web.listen-address=:10250
+          - --web.tls-min-version=VersionTLS13
+          env:
+          - name: GOGC
+            value: "30"
+          image: quay.io/prometheus-operator/prometheus-operator:v0.70.0
+          imagePullPolicy: IfNotPresent
+          name: kube-prometheus-stack
+          ports:
+          - containerPort: 10250
+            name: https
+            protocol: TCP
+          resources: {}
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+              - ALL
+            readOnlyRootFilesystem: true
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /cert
+            name: tls-secret
+            readOnly: true
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext:
+          fsGroup: 65534
+          runAsGroup: 65534
+          runAsNonRoot: true
+          runAsUser: 65534
+          seccompProfile:
+            type: RuntimeDefault
+        serviceAccount: monitoring-kube-prometheus-operator
+        serviceAccountName: monitoring-kube-prometheus-operator
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - name: tls-secret
+          secret:
+            defaultMode: 420
+            secretName: monitoring-kube-prometheus-admission
+  status:
+    availableReplicas: 1
+    fullyLabeledReplicas: 1
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+- metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "1"
+      deployment.kubernetes.io/max-replicas: "2"
+      deployment.kubernetes.io/revision: "1"
+      meta.helm.sh/release-name: monitoring
+      meta.helm.sh/release-namespace: default
+    creationTimestamp: "2024-01-15T11:10:22Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/component: metrics
+      app.kubernetes.io/instance: monitoring
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: kube-state-metrics
+      app.kubernetes.io/part-of: kube-state-metrics
+      app.kubernetes.io/version: 2.10.1
+      helm.sh/chart: kube-state-metrics-5.16.0
+      pod-template-hash: 59c7c8b996
+      release: monitoring
+    name: monitoring-kube-state-metrics-59c7c8b996
+    namespace: default
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: monitoring-kube-state-metrics
+      uid: 16d34206-264d-4a45-9e78-aad88fa92859
+    resourceVersion: "678556"
+    uid: 18d5d794-7e40-48c0-89f2-c26e93e0a853
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app.kubernetes.io/instance: monitoring
+        app.kubernetes.io/name: kube-state-metrics
+        pod-template-hash: 59c7c8b996
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app.kubernetes.io/component: metrics
+          app.kubernetes.io/instance: monitoring
+          app.kubernetes.io/managed-by: Helm
+          app.kubernetes.io/name: kube-state-metrics
+          app.kubernetes.io/part-of: kube-state-metrics
+          app.kubernetes.io/version: 2.10.1
+          helm.sh/chart: kube-state-metrics-5.16.0
+          pod-template-hash: 59c7c8b996
+          release: monitoring
+      spec:
+        containers:
+        - args:
+          - --port=8080
+          - --resources=certificatesigningrequests,configmaps,cronjobs,daemonsets,deployments,endpoints,horizontalpodautoscalers,ingresses,jobs,leases,limitranges,mutatingwebhookconfigurations,namespaces,networkpolicies,nodes,persistentvolumeclaims,persistentvolumes,poddisruptionbudgets,pods,replicasets,replicationcontrollers,resourcequotas,secrets,services,statefulsets,storageclasses,validatingwebhookconfigurations,volumeattachments
+          image: registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.10.1
+          imagePullPolicy: IfNotPresent
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /healthz
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 5
+          name: kube-state-metrics
+          ports:
+          - containerPort: 8080
+            name: http
+            protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 5
+          resources: {}
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+              - ALL
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext:
+          fsGroup: 65534
+          runAsGroup: 65534
+          runAsNonRoot: true
+          runAsUser: 65534
+          seccompProfile:
+            type: RuntimeDefault
+        serviceAccount: monitoring-kube-state-metrics
+        serviceAccountName: monitoring-kube-state-metrics
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 1
+    fullyLabeledReplicas: 1
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+- metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "1"
+      deployment.kubernetes.io/max-replicas: "2"
+      deployment.kubernetes.io/revision: "1"
+    creationTimestamp: "2024-01-11T15:36:33Z"
+    generation: 11
+    labels:
+      app: mywebapp
+      pod-template-hash: 85db8dd645
+      tier: frontend
+    name: mydeployment-85db8dd645
+    namespace: default
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: mydeployment
+      uid: 718d9e9b-d3c1-492c-abf1-c7c8ef0b1a33
+    resourceVersion: "678702"
+    uid: 73997c4a-a50f-42e1-accf-31031f51e0cb
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app: mywebapp
+        pod-template-hash: 85db8dd645
+        tier: frontend
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: mywebapp
+          pod-template-hash: 85db8dd645
+          tier: frontend
+      spec:
+        containers:
+        - envFrom:
+          - configMapRef:
+              name: myconfigmapv1.0
+          image: devopsjourney1/mywebapp:latest
+          imagePullPolicy: Always
+          name: mycontainer
+          ports:
+          - containerPort: 80
+            protocol: TCP
+          resources:
+            limits:
+              cpu: 100m
+              memory: 128Mi
+            requests:
+              cpu: 50m
+              memory: 16Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 1
+    fullyLabeledReplicas: 1
+    observedGeneration: 11
+    readyReplicas: 1
+    replicas: 1
+- metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "1"
+      deployment.kubernetes.io/max-replicas: "2"
+      deployment.kubernetes.io/revision: "1"
+    creationTimestamp: "2024-01-16T10:28:35Z"
+    generation: 2
+    labels:
+      app: webapp
+      pod-template-hash: 5d988d777f
+    name: webapp-5d988d777f
+    namespace: default
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: webapp
+      uid: a3e2ed18-b70b-486d-9cac-eb6e057941f8
+    resourceVersion: "571577"
+    uid: 48c6b9df-d19f-4be0-b59f-f3252015dd95
+  spec:
+    replicas: 0
+    selector:
+      matchLabels:
+        app: webapp
+        pod-template-hash: 5d988d777f
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: webapp
+          pod-template-hash: 5d988d777f
+      spec:
+        containers:
+        - image: richardchesterwood/k8s-fleetman-helm-demo:v1.0.0
+          imagePullPolicy: IfNotPresent
+          name: webapp
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    observedGeneration: 2
+    replicas: 0
+- metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "1"
+      deployment.kubernetes.io/max-replicas: "2"
+      deployment.kubernetes.io/revision: "2"
+    creationTimestamp: "2024-01-16T10:42:02Z"
+    generation: 1
+    labels:
+      app: webapp
+      pod-template-hash: 6459c778df
+    name: webapp-6459c778df
+    namespace: default
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: webapp
+      uid: a3e2ed18-b70b-486d-9cac-eb6e057941f8
+    resourceVersion: "690394"
+    uid: 49e18a6d-c0a1-48ee-b0ae-46ecb7873020
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app: webapp
+        pod-template-hash: 6459c778df
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: webapp
+          pod-template-hash: 6459c778df
+      spec:
+        containers:
+        - image: richardchesterwood/k8s-fleetman-helm-demo:v1.0.0-dev
+          imagePullPolicy: IfNotPresent
+          name: webapp
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 1
+    fullyLabeledReplicas: 1
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+kind: ReplicaSetList
+metadata:
+  resourceVersion: "693283"

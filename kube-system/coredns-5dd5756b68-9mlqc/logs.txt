@@ -1,0 +1,23 @@
+==== START logs for container coredns of pod kube-system/coredns-5dd5756b68-9mlqc ====
+[INFO] plugin/kubernetes: waiting for Kubernetes API before starting server
+[INFO] plugin/kubernetes: waiting for Kubernetes API before starting server
+[INFO] plugin/ready: Still waiting on: "kubernetes"
+[INFO] plugin/kubernetes: waiting for Kubernetes API before starting server
+[INFO] plugin/kubernetes: waiting for Kubernetes API before starting server
+[INFO] plugin/kubernetes: waiting for Kubernetes API before starting server
+[INFO] plugin/kubernetes: waiting for Kubernetes API before starting server
+[INFO] plugin/ready: Still waiting on: "kubernetes"
+[INFO] plugin/kubernetes: waiting for Kubernetes API before starting server
+[INFO] plugin/kubernetes: waiting for Kubernetes API before starting server
+[INFO] plugin/kubernetes: waiting for Kubernetes API before starting server
+[WARNING] plugin/kubernetes: starting server with unsynced Kubernetes API
+.:53
+[INFO] plugin/reload: Running configuration SHA512 = 591cf328cccc12bc490481273e738df59329c62c0b729d94e8b61db9961c2fa5f046dd37f1cf888b953814040d180f52594972691cd6ff41be96639138a43908
+CoreDNS-1.10.1
+linux/amd64, go1.20, 055b2c3
+[INFO] plugin/ready: Still waiting on: "kubernetes"
+[INFO] plugin/ready: Still waiting on: "kubernetes"
+[INFO] plugin/ready: Still waiting on: "kubernetes"
+[INFO] plugin/ready: Still waiting on: "kubernetes"
+[ERROR] plugin/errors: 2 github.com. AAAA: read udp 10.1.0.47:46384->192.168.65.7:53: i/o timeout
+==== END logs for container coredns of pod kube-system/coredns-5dd5756b68-9mlqc ====

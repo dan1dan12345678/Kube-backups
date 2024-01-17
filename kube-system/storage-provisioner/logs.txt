@@ -1,0 +1,24 @@
+==== START logs for container storage-provisioner of pod kube-system/storage-provisioner ====
+I0117 08:59:09.188206       1 leaderelection.go:242] attempting to acquire leader lease  kube-system/docker.io-hostpath...
+I0117 08:59:26.634861       1 leaderelection.go:252] successfully acquired lease kube-system/docker.io-hostpath
+I0117 08:59:26.635171       1 controller.go:780] Starting provisioner controller docker.io/hostpath_storage-provisioner_72532313-a3c7-4075-937f-949cf3146a84!
+I0117 08:59:26.635887       1 event.go:281] Event(v1.ObjectReference{Kind:"Endpoints", Namespace:"kube-system", Name:"docker.io-hostpath", UID:"261a9e02-5834-4f4e-b912-982d214e16cc", APIVersion:"v1", ResourceVersion:"678765", FieldPath:""}): type: 'Normal' reason: 'LeaderElection' storage-provisioner_72532313-a3c7-4075-937f-949cf3146a84 became leader
+I0117 08:59:26.737127       1 controller.go:829] Started provisioner controller docker.io/hostpath_storage-provisioner_72532313-a3c7-4075-937f-949cf3146a84!
+I0117 09:55:23.060402       1 controller.go:1323] delete "pvc-1f7be622-3153-48d7-b32d-1914ebec2f66": started
+time="2024-01-17T09:55:23Z" level=info msg="Deleting PersistentVolume pvc-1f7be622-3153-48d7-b32d-1914ebec2f66: rm -rf /var/lib/k8s-pvs/data-msql-mysql-1/pvc-1f7be622-3153-48d7-b32d-1914ebec2f66"
+I0117 09:55:23.070765       1 controller.go:1351] delete "pvc-1f7be622-3153-48d7-b32d-1914ebec2f66": volume deleted
+I0117 09:55:23.073393       1 controller.go:1323] delete "pvc-1529ff4a-3a49-4369-bd19-69734846d416": started
+time="2024-01-17T09:55:23Z" level=info msg="Deleting PersistentVolume pvc-1529ff4a-3a49-4369-bd19-69734846d416: rm -rf /var/lib/k8s-pvs/data-msql-mysql-0/pvc-1529ff4a-3a49-4369-bd19-69734846d416"
+I0117 09:55:23.081297       1 controller.go:1397] delete "pvc-1f7be622-3153-48d7-b32d-1914ebec2f66": persistentvolume deleted
+I0117 09:55:23.081319       1 controller.go:1399] delete "pvc-1f7be622-3153-48d7-b32d-1914ebec2f66": succeeded
+I0117 09:55:23.087547       1 controller.go:1351] delete "pvc-1529ff4a-3a49-4369-bd19-69734846d416": volume deleted
+I0117 09:55:23.091694       1 controller.go:1397] delete "pvc-1529ff4a-3a49-4369-bd19-69734846d416": persistentvolume deleted
+I0117 09:55:23.091713       1 controller.go:1399] delete "pvc-1529ff4a-3a49-4369-bd19-69734846d416": succeeded
+I0117 10:08:18.045962       1 controller.go:1211] provision "default/data-w-mysql-0" class "hostpath": started
+I0117 10:08:18.051771       1 controller.go:1293] provision "default/data-w-mysql-0" class "hostpath": volume "pvc-d3d279b7-93e2-480e-85ff-de53d5afa337" provisioned
+I0117 10:08:18.052369       1 controller.go:1310] provision "default/data-w-mysql-0" class "hostpath": succeeded
+I0117 10:08:18.052419       1 volume_store.go:212] Trying to save persistentvolume "pvc-d3d279b7-93e2-480e-85ff-de53d5afa337"
+I0117 10:08:18.052089       1 event.go:281] Event(v1.ObjectReference{Kind:"PersistentVolumeClaim", Namespace:"default", Name:"data-w-mysql-0", UID:"d3d279b7-93e2-480e-85ff-de53d5afa337", APIVersion:"v1", ResourceVersion:"684428", FieldPath:""}): type: 'Normal' reason: 'Provisioning' External provisioner is provisioning volume for claim "default/data-w-mysql-0"
+I0117 10:08:18.062231       1 volume_store.go:219] persistentvolume "pvc-d3d279b7-93e2-480e-85ff-de53d5afa337" saved
+I0117 10:08:18.062404       1 event.go:281] Event(v1.ObjectReference{Kind:"PersistentVolumeClaim", Namespace:"default", Name:"data-w-mysql-0", UID:"d3d279b7-93e2-480e-85ff-de53d5afa337", APIVersion:"v1", ResourceVersion:"684428", FieldPath:""}): type: 'Normal' reason: 'ProvisioningSucceeded' Successfully provisioned volume pvc-d3d279b7-93e2-480e-85ff-de53d5afa337
+==== END logs for container storage-provisioner of pod kube-system/storage-provisioner ====

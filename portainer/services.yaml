@@ -1,0 +1,61 @@
+---
+apiVersion: v1
+items:
+- metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"name":"portainer-agent","namespace":"portainer"},"spec":{"ports":[{"name":"http","nodePort":30778,"port":9001,"protocol":"TCP","targetPort":9001}],"selector":{"app":"portainer-agent"},"type":"NodePort"}}
+    creationTimestamp: "2024-01-11T11:48:38Z"
+    name: portainer-agent
+    namespace: portainer
+    resourceVersion: "2682"
+    uid: 45aa3e5f-cb08-40aa-a066-c91dc31149ae
+  spec:
+    clusterIP: 10.109.47.89
+    clusterIPs:
+    - 10.109.47.89
+    externalTrafficPolicy: Cluster
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: http
+      nodePort: 30778
+      port: 9001
+      protocol: TCP
+      targetPort: 9001
+    selector:
+      app: portainer-agent
+    sessionAffinity: None
+    type: NodePort
+  status:
+    loadBalancer:
+      ingress:
+      - hostname: localhost
+- metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"name":"portainer-agent-headless","namespace":"portainer"},"spec":{"clusterIP":"None","selector":{"app":"portainer-agent"}}}
+    creationTimestamp: "2024-01-11T11:48:38Z"
+    name: portainer-agent-headless
+    namespace: portainer
+    resourceVersion: "2683"
+    uid: c5220b73-632d-4b3a-b44b-fa1fe7085721
+  spec:
+    clusterIP: None
+    clusterIPs:
+    - None
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    selector:
+      app: portainer-agent
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+kind: ServiceList
+metadata:
+  resourceVersion: "693285"

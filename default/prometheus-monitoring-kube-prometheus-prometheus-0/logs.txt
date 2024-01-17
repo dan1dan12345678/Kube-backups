@@ -1,0 +1,72 @@
+==== START logs for container init-config-reloader of pod default/prometheus-monitoring-kube-prometheus-prometheus-0 ====
+level=info ts=2024-01-17T08:58:24.768248663Z caller=main.go:137 msg="Starting prometheus-config-reloader" version="(version=0.70.0, branch=refs/tags/v0.70.0, revision=c2c673f7123f3745a2a982b4a2bdc43a11f50fad)"
+level=info ts=2024-01-17T08:58:24.768958388Z caller=main.go:138 build_context="(go=go1.21.4, platform=linux/amd64, user=Action-Run-ID-7048794395, date=20231130-15:42:49, tags=unknown)"
+level=info ts=2024-01-17T08:58:24.772423063Z caller=reloader.go:246 msg="reloading via HTTP"
+==== END logs for container init-config-reloader of pod default/prometheus-monitoring-kube-prometheus-prometheus-0 ====
+==== START logs for container prometheus of pod default/prometheus-monitoring-kube-prometheus-prometheus-0 ====
+ts=2024-01-17T08:58:27.774Z caller=main.go:583 level=info msg="Starting Prometheus Server" mode=server version="(version=2.48.1, branch=HEAD, revision=63894216648f0d6be310c9d16fb48293c45c9310)"
+ts=2024-01-17T08:58:27.775Z caller=main.go:588 level=info build_context="(go=go1.21.5, platform=linux/amd64, user=root@71f108ff5632, date=20231208-23:33:22, tags=netgo,builtinassets,stringlabels)"
+ts=2024-01-17T08:58:27.775Z caller=main.go:589 level=info host_details="(Linux 6.5.11-linuxkit #1 SMP PREEMPT_DYNAMIC Wed Dec  6 17:14:50 UTC 2023 x86_64 prometheus-monitoring-kube-prometheus-prometheus-0 (none))"
+ts=2024-01-17T08:58:27.775Z caller=main.go:590 level=info fd_limits="(soft=1048576, hard=1048576)"
+ts=2024-01-17T08:58:27.775Z caller=main.go:591 level=info vm_limits="(soft=unlimited, hard=unlimited)"
+ts=2024-01-17T08:58:27.783Z caller=web.go:566 level=info component=web msg="Start listening for connections" address=0.0.0.0:9090
+ts=2024-01-17T08:58:27.786Z caller=main.go:1024 level=info msg="Starting TSDB ..."
+ts=2024-01-17T08:58:27.789Z caller=tls_config.go:274 level=info component=web msg="Listening on" address=[::]:9090
+ts=2024-01-17T08:58:27.790Z caller=tls_config.go:313 level=info component=web msg="TLS is disabled." http2=false address=[::]:9090
+ts=2024-01-17T08:58:27.791Z caller=repair.go:56 level=info component=tsdb msg="Found healthy block" mint=1705317022221 maxt=1705341600000 ulid=01HM7NMWRXP1HBEXCJ7902YW5K
+ts=2024-01-17T08:58:27.792Z caller=repair.go:56 level=info component=tsdb msg="Found healthy block" mint=1705341600448 maxt=1705406400000 ulid=01HM9KEDDZP598F2MY9V48WQSQ
+ts=2024-01-17T08:58:27.793Z caller=repair.go:56 level=info component=tsdb msg="Found healthy block" mint=1705406400610 maxt=1705428000000 ulid=01HMA81JYDQG4ESYMBEG25XKK9
+ts=2024-01-17T08:58:27.793Z caller=repair.go:56 level=info component=tsdb msg="Found healthy block" mint=1705449600340 maxt=1705456800000 ulid=01HMANS0FSN76MW3T8VR0PSQBQ
+ts=2024-01-17T08:58:27.795Z caller=repair.go:56 level=info component=tsdb msg="Found healthy block" mint=1705456800628 maxt=1705464000000 ulid=01HMAWMQQXYTRN3FBNS5WMHKWN
+ts=2024-01-17T08:58:27.795Z caller=repair.go:56 level=info component=tsdb msg="Found healthy block" mint=1705428000134 maxt=1705449600000 ulid=01HMAWMR6KVC4ZFKEPQSW2KD4T
+ts=2024-01-17T08:58:27.796Z caller=repair.go:56 level=info component=tsdb msg="Found healthy block" mint=1705464000132 maxt=1705471200000 ulid=01HMB3GEZWXNFR29TPM9NCYXB7
+ts=2024-01-17T08:58:27.797Z caller=dir_locker.go:77 level=warn component=tsdb msg="A lockfile from a previous execution already existed. It was replaced" file=/prometheus/lock
+ts=2024-01-17T08:58:27.867Z caller=head.go:601 level=info component=tsdb msg="Replaying on-disk memory mappable chunks if any"
+ts=2024-01-17T08:58:28.062Z caller=head.go:682 level=info component=tsdb msg="On-disk memory mappable chunks replay completed" duration=194.922576ms
+ts=2024-01-17T08:58:28.062Z caller=head.go:690 level=info component=tsdb msg="Replaying WAL, this may take a while"
+ts=2024-01-17T08:58:28.602Z caller=head.go:726 level=info component=tsdb msg="WAL checkpoint loaded"
+ts=2024-01-17T08:58:29.467Z caller=head.go:761 level=info component=tsdb msg="WAL segment loaded" segment=20 maxSegment=23
+ts=2024-01-17T08:58:30.380Z caller=head.go:761 level=info component=tsdb msg="WAL segment loaded" segment=21 maxSegment=23
+ts=2024-01-17T08:58:31.643Z caller=head.go:761 level=info component=tsdb msg="WAL segment loaded" segment=22 maxSegment=23
+ts=2024-01-17T08:58:31.643Z caller=head.go:761 level=info component=tsdb msg="WAL segment loaded" segment=23 maxSegment=23
+ts=2024-01-17T08:58:31.643Z caller=head.go:798 level=info component=tsdb msg="WAL replay completed" checkpoint_replay_duration=540.3141ms wal_replay_duration=3.040597572s wbl_replay_duration=291ns total_replay_duration=3.775961878s
+ts=2024-01-17T08:58:31.675Z caller=main.go:1045 level=info fs_type=EXT4_SUPER_MAGIC
+ts=2024-01-17T08:58:31.675Z caller=main.go:1048 level=info msg="TSDB started"
+ts=2024-01-17T08:58:31.675Z caller=main.go:1230 level=info msg="Loading configuration file" filename=/etc/prometheus/config_out/prometheus.env.yaml
+ts=2024-01-17T08:58:31.685Z caller=kubernetes.go:329 level=info component="discovery manager scrape" discovery=kubernetes config=serviceMonitor/default/monitoring-kube-prometheus-kube-proxy/0 msg="Using pod service account via in-cluster config"
+ts=2024-01-17T08:58:31.691Z caller=kubernetes.go:329 level=info component="discovery manager scrape" discovery=kubernetes config=serviceMonitor/default/monitoring-kube-prometheus-apiserver/0 msg="Using pod service account via in-cluster config"
+ts=2024-01-17T08:58:31.692Z caller=kubernetes.go:329 level=info component="discovery manager notify" discovery=kubernetes config=config-0 msg="Using pod service account via in-cluster config"
+ts=2024-01-17T08:58:31.834Z caller=main.go:1267 level=info msg="Completed loading of configuration file" filename=/etc/prometheus/config_out/prometheus.env.yaml totalDuration=158.45917ms db_storage=10.459µs remote_storage=3.114µs web_handler=763ns query_engine=1.511µs scrape=645.626µs scrape_sd=6.728411ms notify=84.147µs notify_sd=4.51529ms rules=137.424734ms tracing=28.338µs
+ts=2024-01-17T08:58:31.834Z caller=main.go:1009 level=info msg="Server is ready to receive web requests."
+ts=2024-01-17T08:58:31.834Z caller=manager.go:1012 level=info component="rule manager" msg="Starting rule manager..."
+ts=2024-01-17T08:58:32.439Z caller=main.go:1230 level=info msg="Loading configuration file" filename=/etc/prometheus/config_out/prometheus.env.yaml
+ts=2024-01-17T08:58:32.448Z caller=kubernetes.go:329 level=info component="discovery manager scrape" discovery=kubernetes config=serviceMonitor/default/monitoring-kube-prometheus-apiserver/0 msg="Using pod service account via in-cluster config"
+ts=2024-01-17T08:58:32.449Z caller=kubernetes.go:329 level=info component="discovery manager scrape" discovery=kubernetes config=serviceMonitor/default/monitoring-kube-prometheus-kube-controller-manager/0 msg="Using pod service account via in-cluster config"
+ts=2024-01-17T08:58:32.449Z caller=kubernetes.go:329 level=info component="discovery manager notify" discovery=kubernetes config=config-0 msg="Using pod service account via in-cluster config"
+ts=2024-01-17T08:58:32.631Z caller=main.go:1267 level=info msg="Completed loading of configuration file" filename=/etc/prometheus/config_out/prometheus.env.yaml totalDuration=191.852522ms db_storage=2.121µs remote_storage=2.255µs web_handler=604ns query_engine=1.71µs scrape=106.05µs scrape_sd=1.535465ms notify=136.637µs notify_sd=553.24µs rules=180.982453ms tracing=11.54µs
+ts=2024-01-17T09:00:00.639Z caller=compact.go:523 level=info component=tsdb msg="write block" mint=1705471200000 maxt=1705478400000 ulid=01HMBAC5S8NYPR8Y9Z777QRAS0 duration=471.05569ms
+ts=2024-01-17T09:00:00.655Z caller=head.go:1299 level=info component=tsdb msg="Head GC completed" caller=truncateMemory duration=14.784306ms
+ts=2024-01-17T09:00:00.657Z caller=checkpoint.go:100 level=info component=tsdb msg="Creating checkpoint" from_segment=20 to_segment=21 mint=1705478400000
+ts=2024-01-17T09:00:01.153Z caller=head.go:1267 level=info component=tsdb msg="WAL checkpoint complete" first=20 last=21 duration=496.210035ms
+ts=2024-01-17T11:00:00.772Z caller=compact.go:523 level=info component=tsdb msg="write block" mint=1705478400149 maxt=1705485600000 ulid=01HMBH7X3ADZS38MB4MS0Q126T duration=538.647527ms
+ts=2024-01-17T11:00:00.821Z caller=head.go:1299 level=info component=tsdb msg="Head GC completed" caller=truncateMemory duration=47.193834ms
+ts=2024-01-17T11:00:01.672Z caller=compact.go:464 level=info component=tsdb msg="compact blocks" count=3 mint=1705449600340 maxt=1705471200000 ulid=01HMBH7XNPAQ2THE3JRDT264VH sources="[01HMANS0FSN76MW3T8VR0PSQBQ 01HMAWMQQXYTRN3FBNS5WMHKWN 01HMB3GEZWXNFR29TPM9NCYXB7]" duration=850.564335ms
+ts=2024-01-17T11:00:01.676Z caller=db.go:1619 level=info component=tsdb msg="Deleting obsolete block" block=01HMANS0FSN76MW3T8VR0PSQBQ
+ts=2024-01-17T11:00:01.679Z caller=db.go:1619 level=info component=tsdb msg="Deleting obsolete block" block=01HMAWMQQXYTRN3FBNS5WMHKWN
+ts=2024-01-17T11:00:01.682Z caller=db.go:1619 level=info component=tsdb msg="Deleting obsolete block" block=01HMB3GEZWXNFR29TPM9NCYXB7
+ts=2024-01-17T11:00:02.905Z caller=compact.go:464 level=info component=tsdb msg="compact blocks" count=3 mint=1705406400610 maxt=1705471200000 ulid=01HMBH7YGJ6C7GF899SDEWRGM4 sources="[01HMA81JYDQG4ESYMBEG25XKK9 01HMAWMR6KVC4ZFKEPQSW2KD4T 01HMBH7XNPAQ2THE3JRDT264VH]" duration=1.223445975s
+ts=2024-01-17T11:00:02.915Z caller=db.go:1619 level=info component=tsdb msg="Deleting obsolete block" block=01HMBH7XNPAQ2THE3JRDT264VH
+ts=2024-01-17T11:00:02.921Z caller=db.go:1619 level=info component=tsdb msg="Deleting obsolete block" block=01HMA81JYDQG4ESYMBEG25XKK9
+ts=2024-01-17T11:00:02.926Z caller=db.go:1619 level=info component=tsdb msg="Deleting obsolete block" block=01HMAWMR6KVC4ZFKEPQSW2KD4T
+==== END logs for container prometheus of pod default/prometheus-monitoring-kube-prometheus-prometheus-0 ====
+==== START logs for container config-reloader of pod default/prometheus-monitoring-kube-prometheus-prometheus-0 ====
+level=info ts=2024-01-17T08:58:27.419288518Z caller=main.go:137 msg="Starting prometheus-config-reloader" version="(version=0.70.0, branch=refs/tags/v0.70.0, revision=c2c673f7123f3745a2a982b4a2bdc43a11f50fad)"
+level=info ts=2024-01-17T08:58:27.419386478Z caller=main.go:138 build_context="(go=go1.21.4, platform=linux/amd64, user=Action-Run-ID-7048794395, date=20231130-15:42:49, tags=unknown)"
+level=info ts=2024-01-17T08:58:27.420335259Z caller=main.go:193 msg="Starting web server for metrics" listen=:8080
+level=info ts=2024-01-17T08:58:27.421208325Z caller=tls_config.go:274 msg="Listening on" address=[::]:8080
+level=info ts=2024-01-17T08:58:27.421318483Z caller=tls_config.go:277 msg="TLS is disabled." http2=false address=[::]:8080
+level=info ts=2024-01-17T08:58:27.421527462Z caller=reloader.go:246 msg="reloading via HTTP"
+level=error ts=2024-01-17T08:58:27.435836108Z caller=runutil.go:100 msg="function failed. Retrying in next tick" err="trigger reload: reload request failed: Post \"http://127.0.0.1:9090/-/reload\": dial tcp 127.0.0.1:9090: connect: connection refused"
+level=info ts=2024-01-17T08:58:32.631992838Z caller=reloader.go:424 msg="Reload triggered" cfg_in=/etc/prometheus/config/prometheus.yaml.gz cfg_out=/etc/prometheus/config_out/prometheus.env.yaml watched_dirs=/etc/prometheus/rules/prometheus-monitoring-kube-prometheus-prometheus-rulefiles-0
+level=info ts=2024-01-17T08:58:32.632119143Z caller=reloader.go:282 msg="started watching config file and directories for changes" cfg=/etc/prometheus/config/prometheus.yaml.gz out=/etc/prometheus/config_out/prometheus.env.yaml dirs=/etc/prometheus/rules/prometheus-monitoring-kube-prometheus-prometheus-rulefiles-0
+==== END logs for container config-reloader of pod default/prometheus-monitoring-kube-prometheus-prometheus-0 ====

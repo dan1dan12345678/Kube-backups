@@ -1,0 +1,130 @@
+---
+apiVersion: v1
+items:
+- metadata:
+    creationTimestamp: "2024-01-11T11:48:38Z"
+    generateName: portainer-agent-548d57f7b5-
+    labels:
+      app: portainer-agent
+      pod-template-hash: 548d57f7b5
+    name: portainer-agent-548d57f7b5-7l2b4
+    namespace: portainer
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: portainer-agent-548d57f7b5
+      uid: bbb516e8-59ee-40a5-8fc1-0fc6ed4b9404
+    resourceVersion: "678670"
+    uid: 84208959-4262-473f-ae0f-8fd091857408
+  spec:
+    containers:
+    - env:
+      - name: LOG_LEVEL
+        value: DEBUG
+      - name: AGENT_CLUSTER_ADDR
+        value: portainer-agent-headless
+      - name: KUBERNETES_POD_IP
+        valueFrom:
+          fieldRef:
+            apiVersion: v1
+            fieldPath: status.podIP
+      image: portainer/agent:2.19.4
+      imagePullPolicy: Always
+      name: portainer-agent
+      ports:
+      - containerPort: 9001
+        protocol: TCP
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-rt8rk
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: docker-desktop
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: portainer-sa-clusteradmin
+    serviceAccountName: portainer-sa-clusteradmin
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: kube-api-access-rt8rk
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2024-01-11T11:48:38Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2024-01-17T08:59:08Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2024-01-17T08:59:08Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2024-01-11T11:48:38Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: docker://fed616254068c46cd3e955db3a0c3304498e44da5a0a249bdd1331af55a99eba
+      image: portainer/agent:2.19.4
+      imageID: docker-pullable://portainer/agent@sha256:558676e1e8a019023ec2d9fe10644e82c5ee12405694841098e2f429552a5e48
+      lastState:
+        terminated:
+          containerID: docker://4c4d772d1404a6965e64632bad0552cd9f338c3aa2c9c7162f3e9794637848b1
+          exitCode: 255
+          finishedAt: "2024-01-17T08:58:08Z"
+          reason: Error
+          startedAt: "2024-01-11T11:48:40Z"
+      name: portainer-agent
+      ready: true
+      restartCount: 1
+      started: true
+      state:
+        running:
+          startedAt: "2024-01-17T08:59:07Z"
+    hostIP: 192.168.65.9
+    phase: Running
+    podIP: 10.1.0.55
+    podIPs:
+    - ip: 10.1.0.55
+    qosClass: BestEffort
+    startTime: "2024-01-11T11:48:38Z"
+kind: PodList
+metadata:
+  resourceVersion: "693285"
